@@ -13,6 +13,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    return JobsScreen();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: IndexedStack(

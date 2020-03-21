@@ -1,4 +1,4 @@
-import 'package:app/components/button.dart';
+import 'package:app/screens/job_request/components/components.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,44 +12,53 @@ class JobRequestScreen extends StatefulWidget {
 }
 
 class _JobRequestScreenState extends State<JobRequestScreen> {
+  bool _showDetails = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Anfrage'),
+        title: Text('Anfrage für eine Blitzjob'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(widget.id),
-          Text('test2'),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  Button(
-                    minWidth: (MediaQuery.of(context).size.width - 32) / 2,
-                    color: Colors.lightBlueAccent,
-                    onPressed: () {},
-                    child: Text(
-                      'Nein danke',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  Button(
-                    color: Color(0xFF77dd77),
-                    onPressed: () {},
-                    child: Text(
-                      'Ich habe Interesse',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    minWidth: (MediaQuery.of(context).size.width - 32) / 2,
-                  ),
-                ],
+          Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
+            child: Text(
+              'Gartenarbeit',
+              style: Theme.of(context).textTheme.title,
+            ),
+          ),
+          ListTile(
+            title: Text('Samstag 28. März. 10 - 13 Uhr'),
+          ),
+          if (_showDetails) ...[
+            ListTile(
+              leading: Icon(Icons.terrain),
+              title: Text('Tätigkeiten:  Rasen mähen, Laub harken'),
+            ),
+            ListTile(
+              leading: Icon(Icons.location_on),
+              title: Text('Karow Pankow, 45 Min. Fahrweg von zuhause'),
+            ),
+            ListTile(
+              leading: Icon(Icons.euro_symbol),
+              title: Text('6 €/Std. + 3 € Anfahrt'),
+            ),
+            ListTile(
+              leading: Icon(Icons.event_note),
+              title: Text(
+                'CORONA: eigene Handschuhe mitbringen, min. 2 Meter Abstand zu Leute, nicht im Haus von Kunde reingehen, Gespräche',
               ),
+            )
+          ],
+          Expanded(
+            child: ButtonRow(
+              stageOneCompleted: _showDetails,
+              onContinue: () {
+                setState(() => _showDetails = true);
+              },
             ),
           ),
         ],

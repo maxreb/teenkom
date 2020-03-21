@@ -1,0 +1,319 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:1:1-51:12
+INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:1:1-51:12
+INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:1:1-51:12
+INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:1:1-51:12
+MERGED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:1:1-51:12
+MERGED from [:firebase_messaging] /home/gregor/development/teenkom/mobile/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-20:12
+MERGED from [com.google.firebase:firebase-messaging:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/e8f8335fa751e1c48d557e5e00935bb0/jetified-firebase-messaging-20.0.1/AndroidManifest.xml:17:1-37:12
+MERGED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:17:1-47:12
+MERGED from [com.google.firebase:firebase-common:19.2.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4563900ed6c062621b12ded91453c383/firebase-common-19.2.0/AndroidManifest.xml:2:1-26:12
+MERGED from [com.google.firebase:firebase-iid-interop:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/47654ec75d2f392d949793f6d0ab2e03/firebase-iid-interop-17.0.0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-base:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/8fe25184b2617b536b15db82e2c0db19/play-services-base-17.0.0/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/483b43a4d123474a792d983ac4137e08/play-services-tasks-17.0.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/91f837f13ac40e28c630bffcfd4ed339/firebase-measurement-connector-18.0.0/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/f37d421a9cb3d1e0de0620c5e1848507/play-services-stats-17.0.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2547c4ea35bf8ab63b73b9f2bd1e8b99/jetified-play-services-basement-17.0.0/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.fragment:fragment:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/37f4d0346662de6fde661f79317fee19/fragment-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2b5912e8156667fb49bbc6f953d54fa0/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/3ccce1d3d21234778fa9993ba4a8406b/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/071e8eeeac45d080e6bbdd4ab88dd5a2/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2f7166f44bc6d4c56f2aaedacb140b13/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/9d5fc71b5eec0ce9c69ccf1df4c46fba/coordinatorlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4913682974367fb43d2eef8ca29d7b51/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/d94e52d4a42384592f632436039002fb/slidingpanelayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/88b11b79fc032de19d97ca592bdf9fcb/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/b9b180cd1c9c40ec1796304f7074ddb1/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/1fbefb0b7f0f9430182bfecd23888a79/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/6a7ce534a9c5473feac5b076aff7f4c5/core-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/987fad34a371abd089bb6d0bc0b5387b/lifecycle-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/f03c7b51b3a2fbf7e36738f9d1036643/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/9253f7b0aa05086769a077cc0b5a16aa/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/ceb49828ead29dbea931b6ed2c87c02e/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/5365245c3f6e6c9991f45c47b8db448c/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2c8cc926a4828ce0463540a4ccf5f473/lifecycle-viewmodel-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/8727610ca07683991ede3c97bcf7bcea/versionedparcelable-1.0.0/AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2f7bc4b34c2979ad058b74f165e1cf57/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/6a975685ed97d678f8d7362d4649ff16/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/d3512c17a335140ad5849c8d0396384a/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/e80489239ff66f6e0d5195a36d954119/print-1.0.0/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+	package
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:2:5-29
+		INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/debug/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:1:1-51:12
+		INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/debug/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:1:1-51:12
+		INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/debug/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:1:11-69
+application
+ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:8:5-50:19
+MERGED from [:firebase_messaging] /home/gregor/development/teenkom/mobile/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-18:19
+MERGED from [:firebase_messaging] /home/gregor/development/teenkom/mobile/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-18:19
+MERGED from [com.google.firebase:firebase-messaging:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/e8f8335fa751e1c48d557e5e00935bb0/jetified-firebase-messaging-20.0.1/AndroidManifest.xml:22:5-35:19
+MERGED from [com.google.firebase:firebase-messaging:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/e8f8335fa751e1c48d557e5e00935bb0/jetified-firebase-messaging-20.0.1/AndroidManifest.xml:22:5-35:19
+MERGED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:28:5-45:19
+MERGED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:28:5-45:19
+MERGED from [com.google.firebase:firebase-common:19.2.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4563900ed6c062621b12ded91453c383/firebase-common-19.2.0/AndroidManifest.xml:12:5-24:19
+MERGED from [com.google.firebase:firebase-common:19.2.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4563900ed6c062621b12ded91453c383/firebase-common-19.2.0/AndroidManifest.xml:12:5-24:19
+MERGED from [com.google.firebase:firebase-iid-interop:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/47654ec75d2f392d949793f6d0ab2e03/firebase-iid-interop-17.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-iid-interop:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/47654ec75d2f392d949793f6d0ab2e03/firebase-iid-interop-17.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-base:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/8fe25184b2617b536b15db82e2c0db19/play-services-base-17.0.0/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/8fe25184b2617b536b15db82e2c0db19/play-services-base-17.0.0/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/483b43a4d123474a792d983ac4137e08/play-services-tasks-17.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/483b43a4d123474a792d983ac4137e08/play-services-tasks-17.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/91f837f13ac40e28c630bffcfd4ed339/firebase-measurement-connector-18.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/91f837f13ac40e28c630bffcfd4ed339/firebase-measurement-connector-18.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/f37d421a9cb3d1e0de0620c5e1848507/play-services-stats-17.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/f37d421a9cb3d1e0de0620c5e1848507/play-services-stats-17.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2547c4ea35bf8ab63b73b9f2bd1e8b99/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2547c4ea35bf8ab63b73b9f2bd1e8b99/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.core:core:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/6a7ce534a9c5473feac5b076aff7f4c5/core-1.0.0/AndroidManifest.xml:22:5-89
+MERGED from [androidx.core:core:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/6a7ce534a9c5473feac5b076aff7f4c5/core-1.0.0/AndroidManifest.xml:22:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/8727610ca07683991ede3c97bcf7bcea/versionedparcelable-1.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/8727610ca07683991ede3c97bcf7bcea/versionedparcelable-1.0.0/AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/6a7ce534a9c5473feac5b076aff7f4c5/core-1.0.0/AndroidManifest.xml:22:18-86
+	android:label
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:10:9-28
+	android:icon
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:11:9-43
+	android:name
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:9:9-57
+activity#de.teenkom.app.MainActivity
+ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:12:9-44:20
+	android:launchMode
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:14:13-43
+	android:hardwareAccelerated
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:17:13-47
+	android:windowSoftInputMode
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:18:13-55
+	android:configChanges
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:16:13-163
+	android:theme
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:15:13-47
+	android:name
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:13:13-41
+meta-data#io.flutter.embedding.android.NormalTheme
+ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:23:13-26:17
+	android:resource
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:25:15-52
+	android:name
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:24:15-70
+meta-data#io.flutter.embedding.android.SplashScreenDrawable
+ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:32:13-35:17
+	android:resource
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:34:15-61
+	android:name
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:33:15-79
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:36:13-39:29
+action#android.intent.action.MAIN
+ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:37:17-68
+	android:name
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:37:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:38:17-76
+	android:name
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:38:27-74
+intent-filter#action:name:FLUTTER_NOTIFICATION_CLICK+category:name:android.intent.category.DEFAULT
+ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:40:13-43:29
+action#FLUTTER_NOTIFICATION_CLICK
+ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:41:17-69
+	android:name
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:41:25-66
+category#android.intent.category.DEFAULT
+ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:42:17-76
+	android:name
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:42:27-73
+meta-data#flutterEmbedding
+ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:47:9-49:33
+	android:value
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:49:13-30
+	android:name
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml:48:13-44
+uses-sdk
+INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml
+MERGED from [:firebase_messaging] /home/gregor/development/teenkom/mobile/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_messaging] /home/gregor/development/teenkom/mobile/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-messaging:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/e8f8335fa751e1c48d557e5e00935bb0/jetified-firebase-messaging-20.0.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-messaging:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/e8f8335fa751e1c48d557e5e00935bb0/jetified-firebase-messaging-20.0.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-common:19.2.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4563900ed6c062621b12ded91453c383/firebase-common-19.2.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:firebase-common:19.2.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4563900ed6c062621b12ded91453c383/firebase-common-19.2.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:firebase-iid-interop:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/47654ec75d2f392d949793f6d0ab2e03/firebase-iid-interop-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/47654ec75d2f392d949793f6d0ab2e03/firebase-iid-interop-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/8fe25184b2617b536b15db82e2c0db19/play-services-base-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/8fe25184b2617b536b15db82e2c0db19/play-services-base-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/483b43a4d123474a792d983ac4137e08/play-services-tasks-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/483b43a4d123474a792d983ac4137e08/play-services-tasks-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/91f837f13ac40e28c630bffcfd4ed339/firebase-measurement-connector-18.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/91f837f13ac40e28c630bffcfd4ed339/firebase-measurement-connector-18.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/f37d421a9cb3d1e0de0620c5e1848507/play-services-stats-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/f37d421a9cb3d1e0de0620c5e1848507/play-services-stats-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2547c4ea35bf8ab63b73b9f2bd1e8b99/jetified-play-services-basement-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2547c4ea35bf8ab63b73b9f2bd1e8b99/jetified-play-services-basement-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/37f4d0346662de6fde661f79317fee19/fragment-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/37f4d0346662de6fde661f79317fee19/fragment-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2b5912e8156667fb49bbc6f953d54fa0/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2b5912e8156667fb49bbc6f953d54fa0/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/3ccce1d3d21234778fa9993ba4a8406b/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/3ccce1d3d21234778fa9993ba4a8406b/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/071e8eeeac45d080e6bbdd4ab88dd5a2/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/071e8eeeac45d080e6bbdd4ab88dd5a2/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2f7166f44bc6d4c56f2aaedacb140b13/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2f7166f44bc6d4c56f2aaedacb140b13/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/9d5fc71b5eec0ce9c69ccf1df4c46fba/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/9d5fc71b5eec0ce9c69ccf1df4c46fba/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4913682974367fb43d2eef8ca29d7b51/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4913682974367fb43d2eef8ca29d7b51/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/d94e52d4a42384592f632436039002fb/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/d94e52d4a42384592f632436039002fb/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/88b11b79fc032de19d97ca592bdf9fcb/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/88b11b79fc032de19d97ca592bdf9fcb/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/b9b180cd1c9c40ec1796304f7074ddb1/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/b9b180cd1c9c40ec1796304f7074ddb1/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/1fbefb0b7f0f9430182bfecd23888a79/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/1fbefb0b7f0f9430182bfecd23888a79/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/6a7ce534a9c5473feac5b076aff7f4c5/core-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/6a7ce534a9c5473feac5b076aff7f4c5/core-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/987fad34a371abd089bb6d0bc0b5387b/lifecycle-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/987fad34a371abd089bb6d0bc0b5387b/lifecycle-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/f03c7b51b3a2fbf7e36738f9d1036643/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/f03c7b51b3a2fbf7e36738f9d1036643/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/9253f7b0aa05086769a077cc0b5a16aa/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/9253f7b0aa05086769a077cc0b5a16aa/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/ceb49828ead29dbea931b6ed2c87c02e/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/ceb49828ead29dbea931b6ed2c87c02e/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/5365245c3f6e6c9991f45c47b8db448c/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/5365245c3f6e6c9991f45c47b8db448c/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2c8cc926a4828ce0463540a4ccf5f473/lifecycle-viewmodel-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2c8cc926a4828ce0463540a4ccf5f473/lifecycle-viewmodel-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/8727610ca07683991ede3c97bcf7bcea/versionedparcelable-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/8727610ca07683991ede3c97bcf7bcea/versionedparcelable-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2f7bc4b34c2979ad058b74f165e1cf57/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2f7bc4b34c2979ad058b74f165e1cf57/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/6a975685ed97d678f8d7362d4649ff16/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/6a975685ed97d678f8d7362d4649ff16/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/d3512c17a335140ad5849c8d0396384a/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/d3512c17a335140ad5849c8d0396384a/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/e80489239ff66f6e0d5195a36d954119/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/e80489239ff66f6e0d5195a36d954119/print-1.0.0/AndroidManifest.xml:20:5-44
+INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/debug/AndroidManifest.xml
+INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/debug/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/debug/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/gregor/development/teenkom/mobile/android/app/src/debug/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /home/gregor/development/teenkom/mobile/android/app/src/debug/AndroidManifest.xml:6:5-66
+MERGED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:23:5-67
+	android:name
+		ADDED from /home/gregor/development/teenkom/mobile/android/app/src/debug/AndroidManifest.xml:6:22-64
+service#io.flutter.plugins.firebasemessaging.FlutterFirebaseMessagingService
+ADDED from [:firebase_messaging] /home/gregor/development/teenkom/mobile/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
+	android:name
+		ADDED from [:firebase_messaging] /home/gregor/development/teenkom/mobile/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-101
+intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
+ADDED from [:firebase_messaging] /home/gregor/development/teenkom/mobile/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:29
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from [:firebase_messaging] /home/gregor/development/teenkom/mobile/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-78
+	android:name
+		ADDED from [:firebase_messaging] /home/gregor/development/teenkom/mobile/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:25-75
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [:firebase_messaging] /home/gregor/development/teenkom/mobile/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:13:9-17:19
+MERGED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.firebase:firebase-common:19.2.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4563900ed6c062621b12ded91453c383/firebase-common-19.2.0/AndroidManifest.xml:13:9-17:35
+MERGED from [com.google.firebase:firebase-common:19.2.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4563900ed6c062621b12ded91453c383/firebase-common-19.2.0/AndroidManifest.xml:13:9-17:35
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:31:13-37
+	tools:targetApi
+		ADDED from [com.google.firebase:firebase-common:19.2.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4563900ed6c062621b12ded91453c383/firebase-common-19.2.0/AndroidManifest.xml:17:13-32
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:19.2.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4563900ed6c062621b12ded91453c383/firebase-common-19.2.0/AndroidManifest.xml:15:13-43
+	android:name
+		ADDED from [:firebase_messaging] /home/gregor/development/teenkom/mobile/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:13:18-89
+meta-data#com.google.firebase.components:io.flutter.plugins.firebasemessaging.FlutterFirebaseAppRegistrar
+ADDED from [:firebase_messaging] /home/gregor/development/teenkom/mobile/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-16:85
+	android:value
+		ADDED from [:firebase_messaging] /home/gregor/development/teenkom/mobile/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:16:17-82
+	android:name
+		ADDED from [:firebase_messaging] /home/gregor/development/teenkom/mobile/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:15:17-127
+service#com.google.firebase.messaging.FirebaseMessagingService
+ADDED from [com.google.firebase:firebase-messaging:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/e8f8335fa751e1c48d557e5e00935bb0/jetified-firebase-messaging-20.0.1/AndroidManifest.xml:28:9-34:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/e8f8335fa751e1c48d557e5e00935bb0/jetified-firebase-messaging-20.0.1/AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/e8f8335fa751e1c48d557e5e00935bb0/jetified-firebase-messaging-20.0.1/AndroidManifest.xml:29:13-82
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:22:22-76
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:24:5-68
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:24:22-65
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:26:5-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:26:22-79
+meta-data#com.google.firebase.components:com.google.firebase.iid.Registrar
+ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:32:13-34:85
+	android:value
+		ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:34:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:33:17-96
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:37:9-44:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:39:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:40:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:38:13-78
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:41:13-43:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:42:17-81
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:20.0.1] /home/gregor/.gradle/caches/transforms-2/files-2.1/027f89f7c1954ea87be62a377ef8adf7/firebase-iid-20.0.1/AndroidManifest.xml:42:25-78
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:19.2.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4563900ed6c062621b12ded91453c383/firebase-common-19.2.0/AndroidManifest.xml:19:9-23:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:19.2.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4563900ed6c062621b12ded91453c383/firebase-common-19.2.0/AndroidManifest.xml:21:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:19.2.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4563900ed6c062621b12ded91453c383/firebase-common-19.2.0/AndroidManifest.xml:22:13-37
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:19.2.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4563900ed6c062621b12ded91453c383/firebase-common-19.2.0/AndroidManifest.xml:23:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:19.2.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/4563900ed6c062621b12ded91453c383/firebase-common-19.2.0/AndroidManifest.xml:20:13-77
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/8fe25184b2617b536b15db82e2c0db19/play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/8fe25184b2617b536b15db82e2c0db19/play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/8fe25184b2617b536b15db82e2c0db19/play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/8fe25184b2617b536b15db82e2c0db19/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2547c4ea35bf8ab63b73b9f2bd1e8b99/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2547c4ea35bf8ab63b73b9f2bd1e8b99/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /home/gregor/.gradle/caches/transforms-2/files-2.1/2547c4ea35bf8ab63b73b9f2bd1e8b99/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58

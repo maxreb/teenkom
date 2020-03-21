@@ -1,10 +1,10 @@
 import 'package:app/arguments/job_request_argument.dart';
-import 'package:app/models/job_screen_types.dart';
+import 'package:app/models/job_types.dart';
 import 'package:app/screens/jobs/components/job_list_item.dart';
 import 'package:flutter/material.dart';
 
 class JobsBody extends StatelessWidget {
-  final JobScreenTypes type;
+  final JobTypes type;
 
   const JobsBody({Key key, @required this.type}) : super(key: key);
 
@@ -14,14 +14,14 @@ class JobsBody extends StatelessWidget {
       itemBuilder: (_, index) => JobListItem(
         index: index,
         onTap: () {
-          if (type == JobScreenTypes.completed) {
+          if (type == JobTypes.completed) {
             //TODO
-          } else if (type == JobScreenTypes.request) {
+          } else if (type == JobTypes.request) {
             Navigator.of(context).pushNamed(
               '/job_request',
               arguments: JobRequestArgument('$index'),
             );
-          } else if (type == JobScreenTypes.open) {
+          } else if (type == JobTypes.open) {
             //TODO
           }
         },
