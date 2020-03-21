@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  caiju.teenkom.blitzjob.appserver:
+    image: ${DOCKER_REGISTRY-}teenkom-blitzjob-appserver
+    build:
+      context: .
+      dockerfile: Caiju.TeenKom.Blitzjob.AppServer/Dockerfile
+    ports:
+       - 443:443
+       - 80:80
