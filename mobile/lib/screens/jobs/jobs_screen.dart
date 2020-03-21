@@ -16,7 +16,7 @@ class JobsScreen extends StatelessWidget {
           title: Text('Blitzjobs'),
           bottom: TabBar(
             tabs: [
-              Tab(text: 'Abgeschlossene'),
+              Tab(text: 'Erledigte'),
               Tab(text: 'Anfragen'),
               Tab(text: 'Offene'),
             ],
@@ -24,9 +24,16 @@ class JobsScreen extends StatelessWidget {
           actions: <Widget>[
             Builder(
               builder: (context) {
-                return IconButton(
-                  icon: Icon(Icons.person),
-                  onPressed: () {
+                return GestureDetector(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'images/blitzjobber.png',
+                      width: 45,
+                      height: 45,
+                    ),
+                  ),
+                  onTap: () {
                     showModalBottomSheet(
                       context: context,
                       builder: (_) => SettingsBottomSheet(),

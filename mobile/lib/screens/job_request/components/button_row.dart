@@ -19,7 +19,7 @@ class ButtonRow extends StatelessWidget {
         children: <Widget>[
           Button(
             minWidth: width,
-            color: Colors.lightBlueAccent,
+            color: Theme.of(context).accentColor,//Colors.lightBlueAccent,
             onPressed: () {
               Navigator.pop(context);
             },
@@ -29,7 +29,7 @@ class ButtonRow extends StatelessWidget {
             ),
           ),
           Button(
-            color: Color(0xFF77dd77),
+            color: Theme.of(context).primaryColor, //Color(0xFF77dd77),
             onPressed: onContinue,
             child: Text(
               stageOneCompleted ? 'Mache ich' : 'Ich habe Interesse',

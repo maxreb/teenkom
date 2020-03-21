@@ -1,4 +1,5 @@
-import 'package:app/screens/job_request/components/components.dart';
+import 'package:app/components/job_details.dart';
+import 'package:app/screens/job_request/components/button_row.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,8 @@ class JobRequestScreen extends StatefulWidget {
   _JobRequestScreenState createState() => _JobRequestScreenState();
 }
 
-class _JobRequestScreenState extends State<JobRequestScreen> {
+class _JobRequestScreenState extends State<JobRequestScreen>
+    with SingleTickerProviderStateMixin {
   bool _showDetails = false;
 
   @override
@@ -23,36 +25,7 @@ class _JobRequestScreenState extends State<JobRequestScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
-            child: Text(
-              'Gartenarbeit',
-              style: Theme.of(context).textTheme.title,
-            ),
-          ),
-          ListTile(
-            title: Text('Samstag 28. März. 10 - 13 Uhr'),
-          ),
-          if (_showDetails) ...[
-            ListTile(
-              leading: Icon(Icons.terrain),
-              title: Text('Tätigkeiten:  Rasen mähen, Laub harken'),
-            ),
-            ListTile(
-              leading: Icon(Icons.location_on),
-              title: Text('Karow Pankow, 45 Min. Fahrweg von zuhause'),
-            ),
-            ListTile(
-              leading: Icon(Icons.euro_symbol),
-              title: Text('6 €/Std. + 3 € Anfahrt'),
-            ),
-            ListTile(
-              leading: Icon(Icons.event_note),
-              title: Text(
-                'CORONA: eigene Handschuhe mitbringen, min. 2 Meter Abstand zu Leute, nicht im Haus von Kunde reingehen, Gespräche',
-              ),
-            )
-          ],
+          JobData(showDetails: _showDetails),
           Expanded(
             child: ButtonRow(
               stageOneCompleted: _showDetails,

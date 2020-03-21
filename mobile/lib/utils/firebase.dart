@@ -6,7 +6,19 @@ void initFirebaseMessaging() async {
 
   String token = await firebaseMessaging.getToken();
   print(token);
-  firebaseMessaging.configure(onLaunch: (arguments) {
-    return null;
-  });
+  firebaseMessaging.configure(
+    onLaunch: (arguments) {
+      print('test');
+      return null;
+    },
+    onMessage: (arguments) {
+      print('test');
+      return null;
+    },
+    onResume: (arguments) {
+      print('test');
+      return null;
+    },
+  );
+  firebaseMessaging.subscribeToTopic('NetCoreTest');
 }
