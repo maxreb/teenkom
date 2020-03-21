@@ -9,10 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-		<Protobuf Include="..\Shared\Protos\*.proto" ProtoRoot="..\Shared\Protos" GrpcServices="Server" />
+		<Protobuf Include="..\Shared\Protos\**\*.proto" ProtoRoot="..\Shared\Protos" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FirebaseAdmin" Version="1.9.2" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
   </ItemGroup>

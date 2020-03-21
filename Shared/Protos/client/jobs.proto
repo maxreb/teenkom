@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "Caiju.TeenKom.Blitzjob.AppServer.Protos.Client";
+
+package jobs;
+
+import "client/people.proto";
+
+message AcceptJobReq{
+	uint64 id = 1;
+	bool accept = 2;
+}
+
+message AcceptJobRes{
+	uint64 id = 1;
+	people.Coach coach = 2;
+	people.Customer customer = 3;
+}

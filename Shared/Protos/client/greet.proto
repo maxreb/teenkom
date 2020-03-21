@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "Caiju.TeenKom.Blitzjob.AppServer";
+option csharp_namespace = "Caiju.TeenKom.Blitzjob.AppServer.Client";
 
 package greet;
 

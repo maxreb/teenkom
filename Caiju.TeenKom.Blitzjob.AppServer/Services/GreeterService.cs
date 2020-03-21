@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Caiju.TeenKom.Blitzjob.AppServer.Client;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
 

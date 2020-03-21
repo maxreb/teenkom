@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Components
+
+<MatAppBarContainer>
+	<MatAppBar Fixed="true" Class="top-row">
+		<MatAppBarRow>
+			<MatAppBarSection>
+				<MatIconButton Icon="menu"></MatIconButton>
+				<MatAppBarTitle>TeenKom</MatAppBarTitle>
+			</MatAppBarSection>
+			<MatAppBarSection Align="@MatAppBarSectionAlign.End">
+				<MatIconButton Icon="favorite"></MatIconButton>
+			</MatAppBarSection>
+		</MatAppBarRow>
+	</MatAppBar>
+
+	<MatAppBarContent Style="width:250px !important;">
+		<MatNavMenu >
+			<MatNavItem Href="/">Home</MatNavItem>
+			<MatNavItem Href="/jobs">Jobs</MatNavItem>
+		</MatNavMenu>
+	</MatAppBarContent>
+</MatAppBarContainer>
+
+@code{
+	bool navSubMenuOpenState;
+}
