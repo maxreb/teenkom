@@ -3,6 +3,7 @@
     "Caiju.TeenKom.Blitzjob.AppServer": {
       "commandName": "Project",
       "environmentVariables": {
+        "GOOGLE_APPLICATION_CREDENTIALS ": "Credentials/teenkom-84e22-firebase-adminsdk-2rnyg-17a38cad8d.json",
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "https://localhost:5001"

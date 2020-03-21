@@ -29,15 +29,15 @@
 			<p>@context.Status</p>
 			@if (context.Status == Status.NotReady)
 			{
-				<MatButton OnClick="() => context.Status = Status.Ready">Bereit</MatButton>
+			<MatButton OnClick="() => context.Status = Status.Ready">Bereit</MatButton>
 			}
-			else if (context.Status == Status.Assigned)
+			else if (context.Status == Status.Accepted)
 			{
-				<MatButton OnClick="() => context.Status = Status.WaitForReview">Blitzjob Erledigt</MatButton>
+			<MatButton OnClick="() => context.Status = Status.WaitForReview">Blitzjob Erledigt</MatButton>
 			}
 			else if (context.Status == Status.WaitForReview)
 			{
-				<MatButton OnClick="() => context.Status = Status.Done">Review schreiben</MatButton>
+			<MatButton OnClick="() => context.Status = Status.Done">Review schreiben</MatButton>
 			}
 		</td>
 		<td>
@@ -48,14 +48,14 @@
 					{
 						if (u == null)
 							continue;
-						<tr><td>@u.ToString()</td></tr>
+					<tr><td>@u.ToString()</td></tr>
 					}
 				</table>
 
 				<MatButton Disabled="(context.Status != Status.Ready)" OnClick="@(() => OpenDialog(context.BlitzjobbersAssigned))" Icon="add"></MatButton>
 				@if (context.Status == Status.Ready)
 				{
-					<MatButton Disabled="(!context.BlitzjobbersAssigned.Any())" OnClick="@(() => SetAssigned(context))">Sende Benachrichtigung</MatButton>
+				<MatButton Disabled="(!context.BlitzjobbersAssigned.Any())" OnClick="@(async () => await SetAssigned(context))">Sende Benachrichtigung</MatButton>
 				}
 			</div>
 		</td>
@@ -81,8 +81,8 @@
 	<MatDialogContent>
 		@if (dialogNewJobIsOpen)
 		{
-			<MatTextField Label="Ort" TValue="string" @bind-Value="@newJob.Place"></MatTextField>
-			<MatSelectItem Items="((IReadOnlyList<Category>)Enum.GetValues(typeof(Category)))" TValue="Category" @bind-Value="@newJob.Category"></MatSelectItem>
+		<MatTextField Label="Ort" TValue="string" @bind-Value="@newJob.Place"></MatTextField>
+		<MatSelectItem Items="((IReadOnlyList<Category>)Enum.GetValues(typeof(Category)))" TValue="Category" @bind-Value="@newJob.Category"></MatSelectItem>
 		}
 		<p>Die anderen Sachen folgen...</p>
 
@@ -92,122 +92,4 @@
 		<MatButton OnClick="@NewJobOkClick">OK</MatButton>
 	</MatDialogActions>
 </MatDialog>
-
-
-
-@code
-        {
-
-	List<Job> jobs = new List<Job>{
-		new Job{
-			 HourlyRate = 7.6f,
-			  Note = "Wegen Covid-19 bitte Handschue mitnehmen",
-			 Review = "",
-			Details = "Rasen Mähen",
-			  Category = Category.Gardening,
-			  Customer = new Customer
-			  {
-				  FirstName = "John",
-				  LastName = "Smith",
-				  Address = "Gardening Avenue, New York"
-
-			  },
-			   StartDate = new DateTime(2020,03,21,22,0,0),
-			   EndDate = new DateTime(2020,03,21,23,30,0),
-				Place = "Gardening Avenue, New York",
-				 Status = Status.Ready,
-				 BlitzjobbersAssigned = new List<Blitzjobber>()
-	},
-		new Job{
-			 HourlyRate = 5.6f,
-			 Note = "Wegen Covid-19 bitte keinen Kontakt",
-			 Details = "32 Eier, 128 Packungen Klopapier, 0.64 Liter Milch",
-			  Category = Category.Shopping,
-			  Customer = new Customer
-			  {
-				  FirstName = "Oma",
-				  LastName = "Irma",
-				  Address = "Oranienstraße 37, Berlin"
-
-			  },
-			   StartDate = new DateTime(2020,03,22,15,0,0),
-			   EndDate = new DateTime(2020,03,22,17,0,0),
-				Place = "Kreuzberg, Berlin",
-				 Status = Status.Assigned,
-				 BlitzjobbersAssigned = new List<Blitzjobber>{
-					 blitzjobber[0],
-					 blitzjobber[1]
-				 }
-		}
-	};
-
-	static Blitzjobber[] blitzjobber = new Blitzjobber[] {
-		new Blitzjobber { FirstName = "Adam", LastName = "Smith", Address = "Wrangelstraße 66, Wrangelkiez Berlin"},
-		new Blitzjobber { FirstName = "Zoro", LastName = "Zurich", Address = "Eberswalderstr. 33, Prenzlau Berlin"},
-		new Blitzjobber { FirstName = "Max", LastName = "Mustermann", Address = "Holtenauer Straße 33, Kiel"},
-		new Blitzjobber { FirstName = "Erika", LastName = "Musterfrau", Address = "Lutherstraße 17, Kiel"},
-		};
-
-	bool dialogIsOpen = false;
-	bool dialogNewJobIsOpen = false;
-	string name = null;
-	Blitzjobber animal = null;
-	IList<Blitzjobber> currentBlitzjobberList = null;
-	string dialogAnimal = null;
-
-
-	Job newJob = null;
-
-
-
-
-	void OpenDialog(IList<Blitzjobber> list)
-	{
-		currentBlitzjobberList = list;
-		dialogAnimal = null;
-		dialogIsOpen = true;
-	}
-
-
-	void SetAssigned(Job job)
-	{
-		job.Status = Status.Assigned;
-	}
-
-	void OkClick()
-	{
-		if (animal != null && !currentBlitzjobberList.Contains(animal))
-			currentBlitzjobberList.Add(animal);
-		dialogIsOpen = false;
-	}
-
-	void NewJobOkClick()
-	{
-		jobs.Add(newJob);
-		dialogNewJobIsOpen = false;
-	}
-
-	void NewJob()
-	{
-		newJob = new Job
-		{
-			HourlyRate = 5.6f,
-			Note = "Wegen Covid-19 bitte keinen Kontakt",
-			Details = "wen interessieren schon details?",
-			Customer = new Customer
-			{
-				FirstName = "Adam",
-				LastName = "Ries",
-				Address = "Dorfstrasse, Bad Staffelstein"
-
-			},
-			StartDate = new DateTime(2020, 03, 21, 22, 0, 0),
-			EndDate = new DateTime(2020, 03, 21, 23, 0, 0),
-			Status = Status.NotReady,
-			BlitzjobbersAssigned = new List<Blitzjobber>()
-		};
-		dialogNewJobIsOpen = true;
-	}
-
-}
 

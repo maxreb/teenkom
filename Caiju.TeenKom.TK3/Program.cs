@@ -22,7 +22,7 @@ namespace Caiju.TeenKom.TK3
 			Host.CreateDefaultBuilder(args)
 				.ConfigureWebHostDefaults(webBuilder =>
 				{
-					webBuilder.UseStartup<Startup>().UseUrls("https://*:32774");
+					webBuilder.UseStartup<Startup>();
 				});
 	}
 }

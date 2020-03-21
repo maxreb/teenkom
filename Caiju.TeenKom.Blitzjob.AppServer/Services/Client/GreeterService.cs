@@ -6,7 +6,7 @@ using Caiju.TeenKom.Blitzjob.AppServer.Client;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
 
-namespace Caiju.TeenKom.Blitzjob.AppServer
+namespace Caiju.TeenKom.Blitzjob.AppServer.Services.Client
 {
 	public class GreeterService : Greeter.GreeterBase
 	{

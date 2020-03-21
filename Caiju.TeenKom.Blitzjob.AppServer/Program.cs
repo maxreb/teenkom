@@ -8,7 +8,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace Caiju.TeenKom.Blitzjob.AppServer
 {
-	public class Program
+	public static class Program
 	{
 		public static void Main(string[] args)
 		{
@@ -21,7 +21,7 @@ namespace Caiju.TeenKom.Blitzjob.AppServer
 			Host.CreateDefaultBuilder(args)
 				.ConfigureWebHostDefaults(webBuilder =>
 				{
-					webBuilder.UseStartup<Startup>().UseUrls("https://*:5001");
+					webBuilder.UseStartup<Startup>();
 				});
 	}
 }

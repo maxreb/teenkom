@@ -8,6 +8,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["Caiju.TeenKom.TK3/Caiju.TeenKom.TK3.csproj", "Caiju.TeenKom.TK3/"]
+COPY ["Caiju.TeenKom.Shared/Caiju.TeenKom.Shared.csproj", "Caiju.TeenKom.Shared/"]
 RUN dotnet restore "Caiju.TeenKom.TK3/Caiju.TeenKom.TK3.csproj"
 COPY . .
 WORKDIR "/src/Caiju.TeenKom.TK3"
