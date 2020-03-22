@@ -18,6 +18,7 @@ dependencies:
   mdi: ^1.0.1
   provider: ^4.0.4
   rxdart: ^0.23.1
+  intl: ^0.16.1
 
 dev_dependencies:
   flutter_test:
