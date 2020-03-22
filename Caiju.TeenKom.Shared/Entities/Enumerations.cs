@@ -2,12 +2,19 @@
 {
 	public enum Status
 	{
-		Error,			//Fehler
+		Error,          //Fehler
 		NotReady,       //Warten auf Kundenbestätigung
 		Ready,          //Kunde hat bestätigt, bereit für Assignment
 		Assigned,       //Blitzjobber*innen zugewiesen
 		Accepted,       //Blitzjob angenommen
 		WaitForReview,  //Sende Blitzjobber Benachrichtigung und warte auf Anruf
 		Done            //Alles erledigt		
+	}
+
+	public enum Category
+	{
+		Gardening,
+		Shopping,
+		CleanCar
 	}
 }

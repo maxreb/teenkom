@@ -3,6 +3,9 @@ version: '3.4'
 services:
   appserver:
     image: ${DOCKER_REGISTRY-}teenkom-blitzjob-appserver
+    networks:
+        - db
+        - default
     build:
       context: .
       dockerfile: Caiju.TeenKom.Blitzjob.AppServer/Dockerfile
@@ -14,4 +17,43 @@ services:
     build:
       context: .
       dockerfile: Caiju.TeenKom.TK3/Dockerfile
+    networks:
+        - db
+        - default
 
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-EasyPwAsItsInternal}
+      PGDATA: /data/postgres
+    volumes:
+       - postgres:/data/postgres
+    networks:
+      - db
+    restart: unless-stopped
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+    volumes:
+       - pgadmin:/root/.pgadmin
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    networks:
+      - db
+      - default
+    restart: unless-stopped
+
+
+networks:
+  db:
+    driver: bridge
+    internal: true
+
+volumes:
+    postgres:
+    pgadmin:
