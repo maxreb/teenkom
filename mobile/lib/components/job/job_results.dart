@@ -22,7 +22,7 @@ class JobResults extends StatelessWidget {
         ),
         ListTile(
           leading: Icon(Mdi.cashMultiple),
-          title: Text('12 € verident'),
+          title: Text('12 € verdient'),
         ),
       ],
     );

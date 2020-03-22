@@ -17,7 +17,7 @@ class SettingsBottomSheet extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
             'Erika Musterfrau',
-            style: Theme.of(context).textTheme.title,
+            style: Theme.of(context).textTheme.headline6,
           ),
         ),
         SizedBox(height: 8),

@@ -9,37 +9,8 @@ class NavigationScreen extends StatefulWidget {
 }
 
 class _NavigationScreenState extends State<NavigationScreen> {
-  int _currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return JobsScreen();
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: IndexedStack(
-        index: _currentIndex,
-        children: const <Widget>[
-          JobsScreen(),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.done_all),
-            title: Text('Blitzjobs'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            title: Text('Coach'),
-          ),
-        ],
-      ),
-    );
   }
 }

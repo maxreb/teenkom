@@ -14,7 +14,7 @@ class JobTitle extends StatelessWidget {
           padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
           child: Text(
             'Gartenarbeit${showName ? ' bei Frau Maier' : ''}',
-            style: Theme.of(context).textTheme.title,
+            style: Theme.of(context).textTheme.headline6,
           ),
         ),
         ListTile(

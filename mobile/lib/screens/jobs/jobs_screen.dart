@@ -2,13 +2,25 @@ import 'package:app/bloc/jobs_bloc.dart';
 import 'package:app/models/job_types.dart';
 import 'package:app/screens/jobs/components/jobs_body.dart';
 import 'package:app/screens/settings_bottom_sheet/settings_bottom_sheet.dart';
+import 'package:app/utils/firebase.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class JobsScreen extends StatelessWidget {
+class JobsScreen extends StatefulWidget {
   final int initialIndex;
 
   const JobsScreen({this.initialIndex = 0}) : assert(initialIndex != null);
+
+  @override
+  _JobsScreenState createState() => _JobsScreenState();
+}
+
+class _JobsScreenState extends State<JobsScreen> {
+  @override
+  void initState() {
+    initFirebaseMessaging(context);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +28,7 @@ class JobsScreen extends StatelessWidget {
       create: (_) => JobsBloc(),
       dispose: (_, bloc) => bloc.dispose(),
       child: DefaultTabController(
-        initialIndex: initialIndex,
+        initialIndex: widget.initialIndex,
         length: 3,
         child: Scaffold(
           resizeToAvoidBottomInset: false,
