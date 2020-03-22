@@ -5,8 +5,10 @@ class ButtonRow extends StatelessWidget {
   final VoidCallback onContinue;
   final bool stageOneCompleted;
 
-  const ButtonRow(
-      {@required this.onContinue, @required this.stageOneCompleted});
+  const ButtonRow({
+    @required this.onContinue,
+    @required this.stageOneCompleted,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class ButtonRow extends StatelessWidget {
         children: <Widget>[
           Button(
             minWidth: width,
-            color: Theme.of(context).accentColor,//Colors.lightBlueAccent,
+            color: Theme.of(context).accentColor, //Colors.lightBlueAccent,
             onPressed: () {
               Navigator.pop(context);
             },

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class YourCoach extends StatelessWidget {
-  const YourCoach();
+class JobCoach extends StatelessWidget {
+  const JobCoach();
 
   @override
   Widget build(BuildContext context) {

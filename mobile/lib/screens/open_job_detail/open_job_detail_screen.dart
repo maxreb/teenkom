@@ -1,5 +1,5 @@
-import 'package:app/components/job_details.dart';
-import 'package:app/screens/open_job_detail/component/your_coach.dart';
+import 'package:app/components/components.dart';
+import 'package:app/screens/open_job_detail/components/job_awaiting_review.dart';
 import 'package:flutter/material.dart';
 
 class OpenJobDetailsScreen extends StatelessWidget {
@@ -11,9 +11,13 @@ class OpenJobDetailsScreen extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          JobData(),
-          SizedBox(height: 32),
-          const YourCoach(),
+          JobTitle(),
+          const SizedBox(height: 16),
+          const JobDetails(),
+          const SizedBox(height: 32),
+          const JobCoach(),
+          const SizedBox(height: 32),
+          const JobAwaitingReview(),
         ],
       ),
     );
