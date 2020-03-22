@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caiju.TeenKom.Blitzjob.AppServer", "Caiju.TeenKom.Blitzjob.AppServer\Caiju.TeenKom.Blitzjob.AppServer.csproj", "{0324CFE8-B477-4F1C-A443-4EBF84425C75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caiju.TeenKom.Blitzjob.AppServer", "Caiju.TeenKom.Blitzjob.AppServer\Caiju.TeenKom.Blitzjob.AppServer.csproj", "{0324CFE8-B477-4F1C-A443-4EBF84425C75}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{19E4E65F-C90C-43A4-A7E4-AFDD9E7CC9FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caiju.TeenKom.TK3", "Caiju.TeenKom.TK3\Caiju.TeenKom.TK3.csproj", "{5D3320B2-A88C-42DA-87D8-21EF7114D49C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caiju.TeenKom.TK3", "Caiju.TeenKom.TK3\Caiju.TeenKom.TK3.csproj", "{5D3320B2-A88C-42DA-87D8-21EF7114D49C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caiju.TeenKom.Shared", "Caiju.TeenKom.Shared\Caiju.TeenKom.Shared.csproj", "{A965D924-FAF9-4180-A371-F98C0535FEE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caiju.TeenKom.Shared", "Caiju.TeenKom.Shared\Caiju.TeenKom.Shared.csproj", "{A965D924-FAF9-4180-A371-F98C0535FEE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caiju.TeenKom.Blitzjob.TestClient", "Caiju.TeenKom.Blitzjob.TestClient\Caiju.TeenKom.Blitzjob.TestClient.csproj", "{53CE1DBA-1EB5-48FE-B6CC-C83CC48804C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{A965D924-FAF9-4180-A371-F98C0535FEE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A965D924-FAF9-4180-A371-F98C0535FEE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A965D924-FAF9-4180-A371-F98C0535FEE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53CE1DBA-1EB5-48FE-B6CC-C83CC48804C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53CE1DBA-1EB5-48FE-B6CC-C83CC48804C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53CE1DBA-1EB5-48FE-B6CC-C83CC48804C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53CE1DBA-1EB5-48FE-B6CC-C83CC48804C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

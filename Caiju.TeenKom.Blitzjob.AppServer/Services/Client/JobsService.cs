@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Caiju.TeenKom.Blitzjob.AppServer.Protos.Client;
 using Caiju.TeenKom.Blitzjob.AppServer.Protos.Shared;
@@ -15,11 +16,14 @@ namespace Caiju.TeenKom.Blitzjob.AppServer.Services.Client
 {
 	public class JobsService : Jobs.JobsBase
 	{
-		private readonly TeenKomContext _dbContext;
 
-		public JobsService(TeenKomContext db)
+		private readonly TeenKomContext _dbContext;
+		private readonly HttpClient _httpClient;
+
+		public JobsService(TeenKomContext db, HttpClient httpClient)
 		{
 			_dbContext = db;
+			_httpClient = httpClient;
 		}
 		public override async Task<AcceptJobRes> AcceptJobReq(DefaultReq request, ServerCallContext context)
 		{
@@ -31,6 +35,7 @@ namespace Caiju.TeenKom.Blitzjob.AppServer.Services.Client
 
 				j.Status = Shared.Entities.Status.Accepted;
 				await _dbContext.SaveChangesAsync().ConfigureAwait(false);
+				await _httpClient.GetAsync("https://tk3/refresh");
 
 				var ppl = new PeopleBase
 				{
@@ -48,9 +53,6 @@ namespace Caiju.TeenKom.Blitzjob.AppServer.Services.Client
 					},
 					Coach = PeopleService.DefaultCouch
 				};
-
-
-
 			}
 		}
 		public override async Task<BlitzjobRes> Get(DefaultReq request, ServerCallContext context)
@@ -75,14 +77,15 @@ namespace Caiju.TeenKom.Blitzjob.AppServer.Services.Client
 			Success = true,
 			CustomerId = j.Customer?.CustomerID ?? 0,
 			Descripton = j.Details,
-			StartDate = Timestamp.FromDateTime(j.StartDate),
-			EndDate = Timestamp.FromDateTime(j.EndDate),
+			StartDate = Timestamp.FromDateTime(j.StartDate.ToUniversalTime()),
+			EndDate = Timestamp.FromDateTime(j.EndDate.ToUniversalTime()),
 			HourlyRate = j.HourlyRate,
 			Location = j.Place,
 			Note = j.Note,
-			Review = j.Review,
+			Review = j.Review ?? string.Empty,
 			Status = j.Status.ToFriendlyString(),
-			Title = j.Category.ToFriendlyString()
+			Title = j.Category.ToFriendlyString(),
+			JobId = j.JobID
 		};
 
 

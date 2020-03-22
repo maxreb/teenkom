@@ -13,6 +13,7 @@ using Caiju.TeenKom.TK3.Data;
 using System.Net.Http;
 using Caiju.TeenKom.Shared.Database;
 using Caiju.TeenKom.TK3.Stores;
+using Caiju.TeenKom.TK3.Services;
 
 namespace Caiju.TeenKom.TK3
 {
@@ -35,6 +36,8 @@ namespace Caiju.TeenKom.TK3
 			services.AddSingleton<WeatherForecastService>();
 			services.AddDbContext<TeenKomContext>();
 			services.AddScoped<TeenKomFCMStore>();
+
+			services.AddSingleton<RefreshDBService>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

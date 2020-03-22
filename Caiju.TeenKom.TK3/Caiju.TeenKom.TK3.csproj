@@ -12,6 +12,7 @@
 
 	<ItemGroup>
 		<Protobuf Include="..\Shared\Protos\server\*.proto" ProtoRoot="..\Shared\Protos" GrpcServices="Client" />
+		<Protobuf Include="..\Shared\Protos\shared\*.proto" ProtoRoot="..\Shared\Protos" GrpcServices="Client" />
 	</ItemGroup>
 	
   <ItemGroup>
@@ -32,5 +33,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Caiju.TeenKom.Shared\Caiju.TeenKom.Shared.csproj" />
   </ItemGroup>
+
 
 </Project>

@@ -1,0 +1,9 @@
+﻿@page "/refresh"
+@inject RefreshDBService srv;
+
+@code {
+	protected override void OnInitialized()
+	{
+		srv.Refresh();
+	}
+}

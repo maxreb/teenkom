@@ -10,8 +10,7 @@ services:
       context: .
       dockerfile: Caiju.TeenKom.Blitzjob.AppServer/Dockerfile
     ports:
-       - 443:443
-       - 80:80
+       - 5001:443
   tk3:
     image: ${DOCKER_REGISTRY-}teenkom-tk3
     build:

@@ -1,6 +1,7 @@
 ﻿using Caiju.TeenKom.Blitzjob.AppServer.Protos.Server;
 using Caiju.TeenKom.Shared.Database;
 using Caiju.TeenKom.Shared.Entities;
+using Caiju.TeenKom.TK3.Services;
 using Caiju.TeenKom.TK3.Stores;
 using Grpc.Net.Client;
 using Microsoft.AspNetCore.Components;
@@ -14,36 +15,56 @@ using System.Threading.Tasks;
 
 namespace Caiju.TeenKom.TK3.Pages
 {
-	public partial class JobsPage
+	public partial class JobsPage : IDisposable
 	{
 		[Inject]
 		TeenKomFCMStore FcmStore { get; set; }
+		[Inject]
+		RefreshDBService refreshDBService { get; set; }
 
 
-		IEnumerable<Job> Jobs => _dbContext.Blitzjobs;
+		readonly object _lock = new object();
 
-		IReadOnlyList<Blitzjobber> Blitzjobber => _dbContext.Blitzjobber.ToList();
+		IEnumerable<Job> Jobs
+		{
+			get
+			{
+				lock (_lock)
+				{
+					return _dbContext.Blitzjobs.ToList();
+				}
+			}
+		}
+		IReadOnlyList<Blitzjobber> Blitzjobber
+		{
+			get
+			{
+				lock (_lock)
+				{
+					return _dbContext.Blitzjobber.ToList();
+				}
+			}
+		}
 		bool dialogIsOpen = false;
 		bool dialogNewJobIsOpen = false;
 		string name = null;
 		Blitzjobber blitzjobber = null;
 		Job currentJob = null;
+
 		string dialogAnimal = null;
-
-
 		Job newJob = null;
 
+		Job reviewJob = null;
+		bool dialogReviewIsOpen;
 
 		protected override void OnInitialized()
 		{
 			//this is the stupiest thing I  every seen
 			//we have to do this, otherwise JobBlitzjobberRelation wont me initalized
 			//there must by another way, but not enough time while hackathon
-			foreach (var t in _dbContext.JobBlitzjobberRelation)
-			{
+			_dbContext.JobBlitzjobberRelation.Load();
 
-			}
-
+			refreshDBService.OnRefreshRequest += RefreshDBService_OnRefreshRequest;
 
 
 			//_dbContext.Blitzjobber.Add(new Blitzjobber { FirstName = "Adam", LastName = "Smith", Address = "Wrangelstraße 66, Wrangelkiez Berlin" });
@@ -52,6 +73,20 @@ namespace Caiju.TeenKom.TK3.Pages
 			//_dbContext.Blitzjobber.Add(new Blitzjobber { FirstName = "Erika", LastName = "Musterfrau", Address = "Lutherstraße 17, Kiel" });
 			//_dbContext.SaveChanges();
 
+		}
+
+		private async void RefreshDBService_OnRefreshRequest(object sender, EventArgs e)
+		{
+			lock (_lock)
+			{
+				//TODO find a more clean soulution
+				var l = _dbContext.Blitzjobs.ToList();
+				foreach (var t in l)
+				{
+					_dbContext.Entry(t).Reload();
+				}
+			}
+			await InvokeAsync(() => StateHasChanged());
 		}
 
 		void OpenDialog(Job job)
@@ -78,10 +113,6 @@ namespace Caiju.TeenKom.TK3.Pages
 				Console.WriteLine("ERROR\r\n" + ex.ToString());
 				job.Status = Status.Error;
 			}
-
-
-
-
 		}
 
 
@@ -93,6 +124,7 @@ namespace Caiju.TeenKom.TK3.Pages
 
 			//}
 			//Hackathon only one "user"
+			job.Status = Status.WaitForReview;
 			return FcmStore.NewReviewReq(job);
 		}
 
@@ -103,32 +135,57 @@ namespace Caiju.TeenKom.TK3.Pages
 			dialogIsOpen = false;
 		}
 
-		async Task NewJobOkClick()
-		{
-			await _dbContext.Blitzjobs.AddAsync(newJob).ConfigureAwait(false);
 
+		void WriteReview(Job job)
+		{
+			reviewJob = job;
+			dialogReviewIsOpen = true;
+		}
+
+
+		void NewJobOkClick()
+		{
+			lock (_lock)
+			{
+				_dbContext.Blitzjobs.Add(newJob);
+			}
+			newJob = null;
 			dialogNewJobIsOpen = false;
 		}
 
-		protected override async Task OnAfterRenderAsync(bool firstRender)
+
+		void ReviewOkClick()
+		{
+			dialogReviewIsOpen = false;
+			reviewJob.Status = Status.Done;
+		}
+
+		protected override void OnAfterRender(bool firstRender)
 		{
 			if (!firstRender)
-				await _dbContext.SaveChangesAsync();//super lazy~~
+			{
+
+				lock (_lock)
+				{
+					_dbContext.SaveChanges();//super lazy~~
+				}
+			}
+
 		}
 
 		void NewJob()
 		{
+			var rnd = new Random();
 			newJob = new Job
 			{
-				HourlyRate = 5.6f,
+				HourlyRate = rnd.Next(50, 100) / 10.0f,
 				Note = "Wegen Covid-19 bitte keinen Kontakt",
-				Details = "wen interessieren schon details?",
+				Details = "Rasenmähen, Laub harken",
 				Customer = new Customer
 				{
 					FirstName = "Adam",
 					LastName = "Ries",
 					Address = "Dorfstrasse, Bad Staffelstein"
-
 				},
 				StartDate = new DateTime(2020, 03, 21, 22, 0, 0),
 				EndDate = new DateTime(2020, 03, 21, 23, 0, 0),
@@ -137,6 +194,9 @@ namespace Caiju.TeenKom.TK3.Pages
 			dialogNewJobIsOpen = true;
 		}
 
-
+		public void Dispose()
+		{
+			refreshDBService.OnRefreshRequest -= RefreshDBService_OnRefreshRequest;
+		}
 	}
 }

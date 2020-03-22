@@ -1,4 +1,5 @@
 ﻿using Caiju.TeenKom.Blitzjob.AppServer.Protos.Server;
+using Caiju.TeenKom.Blitzjob.AppServer.Protos.Shared;
 using Caiju.TeenKom.Shared.Entities;
 using Grpc.Net.Client;
 using System;
@@ -32,13 +33,13 @@ namespace Caiju.TeenKom.TK3.Stores
 
 		public async Task<bool> NewAssignmentReq(Job job)
 		{
-			var reply = await _client.NewAssignmentRequestAsync(new DefaultReq { JobId = job.JobID });
+			var reply = await _client.NewAssignmentRequestAsync(new DefaultReq { Id = job.JobID });
 			return reply.Success;
 		}
 
 		public async Task<bool> NewReviewReq(Job job)
 		{
-			var reply = await _client.NewReviewRequestAsync(new DefaultReq { JobId = job.JobID });
+			var reply = await _client.NewReviewRequestAsync(new DefaultReq { Id = job.JobID });
 			return reply.Success;
 		}
 

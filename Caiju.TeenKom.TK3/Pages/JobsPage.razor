@@ -19,7 +19,7 @@
 	</MatTableHeader>
 	<MatTableRow>
 		<td>@context.Place</td>
-		<td>@context.Customer</td>
+		<td>@(context.Customer?.ToString() ?? "Adam Ries")</td>
 		<td>@context.Category</td>
 		<td>@context.Details</td>
 		<td>@context.StartDate</td>
@@ -45,7 +45,7 @@
 			}
 			else if (context.Status == Status.WaitForReview)
 			{
-				<MatButton OnClick="() => context.Status = Status.Done">Review schreiben</MatButton>
+				<MatButton OnClick="() => WriteReview(context)">Review schreiben</MatButton>
 			}
 		</td>
 		<td>
@@ -99,7 +99,21 @@
 	</MatDialogContent>
 	<MatDialogActions>
 		<MatButton OnClick="@(e => { dialogNewJobIsOpen = false; })">Abbrechen</MatButton>
-		<MatButton Raised="true" OnClick="(async () => await NewJobOkClick())">OK</MatButton>
+		<MatButton Raised="true" OnClick="NewJobOkClick">OK</MatButton>
+	</MatDialogActions>
+</MatDialog>
+
+<MatDialog @bind-IsOpen="@dialogReviewIsOpen">
+	<MatDialogTitle>Review schreiben</MatDialogTitle>
+	<MatDialogContent>
+		@if (dialogReviewIsOpen)
+		{
+			<MatTextField Label="Review" TValue="string" @bind-Value="@reviewJob.Review" TextArea="true"></MatTextField>
+		}
+	</MatDialogContent>
+	<MatDialogActions>
+		<MatButton OnClick="@(e => { reviewJob.Review = null; dialogReviewIsOpen = false; })">Abbrechen</MatButton>
+		<MatButton Raised="true" OnClick="ReviewOkClick">OK</MatButton>
 	</MatDialogActions>
 </MatDialog>
 

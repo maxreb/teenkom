@@ -30,6 +30,7 @@ message BlitzjobRes{
 	string note = 9;
 	int32 customer_id = 10;
 	string review = 11;
+	int32 job_id = 12;
 }
 
 message AcceptJobReq{
