@@ -26,15 +26,22 @@
 		<td>@context.EndDate</td>
 		<td>@context.Note</td>
 		<td>@context.HourlyRate €/h (Insgesamt: @(Math.Round(context.HourlyRate * (context.EndDate - context.StartDate).TotalHours, 2)) € )</td>
-		<td>
+		<td style=@(context.Status == Status.Error ? "background-color: red" : "")>
 			<p>@context.Status</p>
+			@if (context.Status == Status.Error)
+			{
+				<MatButton OnClick="() => {
+										context.Status = Status.NotReady;
+										context.BlitzjobbersAssigned.Clear();
+									}">Reset</MatButton>
+			}
 			@if (context.Status == Status.NotReady)
 			{
 				<MatButton OnClick="() => context.Status = Status.Ready">Bereit</MatButton>
 			}
 			else if (context.Status == Status.Accepted)
 			{
-				<MatButton OnClick="() => context.Status = Status.WaitForReview">Blitzjob Erledigt</MatButton>
+				<MatButton OnClick="async () => await SendReviewRequest(context)">Blitzjob Erledigt</MatButton>
 			}
 			else if (context.Status == Status.WaitForReview)
 			{

@@ -23,11 +23,11 @@ namespace Caiju.TeenKom.Shared.Database
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-#if DEBUG
-			optionsBuilder.UseNpgsql(@"Host=localhost;Database=teenkom;Username=postgres;Password=EasyPwAsItsInternal");
-#else
+//#if DEBUG
+			//optionsBuilder.UseNpgsql(@"Host=localhost;Database=teenkom;Username=postgres;Password=EasyPwAsItsInternal");
+//#else
 			optionsBuilder.UseNpgsql(@"Host=postgres;Database=teenkom;Username=postgres;Password=EasyPwAsItsInternal");
-#endif
+//#endif
 		}
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

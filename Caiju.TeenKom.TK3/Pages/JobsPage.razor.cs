@@ -1,6 +1,7 @@
 ﻿using Caiju.TeenKom.Blitzjob.AppServer.Protos.Server;
 using Caiju.TeenKom.Shared.Database;
 using Caiju.TeenKom.Shared.Entities;
+using Caiju.TeenKom.TK3.Stores;
 using Grpc.Net.Client;
 using Microsoft.AspNetCore.Components;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +16,8 @@ namespace Caiju.TeenKom.TK3.Pages
 {
 	public partial class JobsPage
 	{
-		//[Inject] //Does not work in .net 3.1  https://github.com/dotnet/aspnetcore/issues/10448
+		[Inject]
+		TeenKomFCMStore FcmStore { get; set; }
 
 
 		IEnumerable<Job> Jobs => _dbContext.Blitzjobs;
@@ -62,23 +64,36 @@ namespace Caiju.TeenKom.TK3.Pages
 
 		async Task SetAssigned(Job job)
 		{
-
-
-			var httpClientHandler = new HttpClientHandler
+			try
 			{
-#warning Return `true` to allow certificates that are untrusted/invalid
-				ServerCertificateCustomValidationCallback =
-				HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
-			};
-			var httpClient = new HttpClient(httpClientHandler);
-			var channel = GrpcChannel.ForAddress("https://appserver:443",
-				new GrpcChannelOptions { HttpClient = httpClient });
-			var client = new TeenKonFCM.TeenKonFCMClient(channel);
-			var reply = await client.NewAssignmentRequestAsync(new NewAssignmentReq { JobId = 3, UserId = 5 });
-			if (reply.Success == true)
-				job.Status = Status.Assigned;
-			else
+				var reply = await FcmStore.NewAssignmentReq(job);
+				if (reply == true)
+					job.Status = Status.Assigned;
+				else
+					job.Status = Status.Error;
+			}
+			catch (Exception ex)
+			{
+				//TODO add serilog
+				Console.WriteLine("ERROR\r\n" + ex.ToString());
 				job.Status = Status.Error;
+			}
+
+
+
+
+		}
+
+
+		Task SendReviewRequest(Job job)
+		{
+			//TODO
+			//foreach (var u in job.BlitzjobbersAssigned)
+			//{
+
+			//}
+			//Hackathon only one "user"
+			return FcmStore.NewReviewReq(job);
 		}
 
 		void OkClick()

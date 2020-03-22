@@ -39,17 +39,6 @@ namespace Caiju.TeenKom.Blitzjob.AppServer
 				Credential = GoogleCredential.FromFile("Credentials/teenkom-84e22-firebase-adminsdk-2rnyg-17a38cad8d.json")
 			});
 
-
-			var res = FirebaseMessaging.DefaultInstance.SendAsync(new Message
-			{
-				Notification = new Notification { Title = "Test", Body = "hallo" },
-				Topic = "NetCoreTest",
-				Data = new Dictionary<string, string>()
-				{
-					{"click_action","FLUTTER_NOTIFICATION_CLICK" }
-				}
-			}).GetAwaiter().GetResult();
-
 			app.UseRouting();
 
 			app.UseEndpoints(endpoints =>
