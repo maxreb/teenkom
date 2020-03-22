@@ -1,29 +1,34 @@
 import 'dart:async';
 
-import 'package:app/models/job_types.dart';
 import 'package:app/networking/response.dart';
+import 'package:rxdart/rxdart.dart';
 
 class JobsBloc {
-  final JobTypes jobType;
-  final _jobsStreamController = StreamController<Response>();
+  Stream<Response> get jobs => _jobsSubject.stream;
 
-  Stream<Response> get jobs => _jobsStreamController.stream;
+  final _jobsSubject = BehaviorSubject<Response>();
 
-  JobsBloc(this.jobType);
+  JobsBloc() {
+    fetchJobs();
+  }
 
-  void _fetchJobs() async {
-    _jobsStreamController.add(Response.loading('Getting Chuck Categories.'));
+  bool get notClosed => !_jobsSubject.isClosed;
+
+  void fetchJobs() async {
+    _jobsSubject.add(Response.loading('Lade Jobs...'));
     try {
+      await Future.delayed(Duration(seconds: 1));
+      if (notClosed) _jobsSubject.add(Response.completed([]));
 //      chuckCategories jobs =
 //      await _chuckRepository.fetchChuckCategoryData();
 //      _jobsStreamController.add(Response.completed(jobs));
     } catch (e) {
-      _jobsStreamController.add(Response.error(e.toString()));
+      _jobsSubject.add(Response.error(e.toString()));
       print(e);
     }
   }
 
   void dispose() {
-    _jobsStreamController.close();
+    _jobsSubject.close();
   }
 }

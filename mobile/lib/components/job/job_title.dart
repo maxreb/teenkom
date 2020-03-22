@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class JobTitle extends StatelessWidget {
-  const JobTitle();
+  final bool showName;
+
+  const JobTitle({this.showName = false});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,7 @@ class JobTitle extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
           child: Text(
-            'Gartenarbeit',
+            'Gartenarbeit${showName ? ' bei Frau Maier' : ''}',
             style: Theme.of(context).textTheme.title,
           ),
         ),

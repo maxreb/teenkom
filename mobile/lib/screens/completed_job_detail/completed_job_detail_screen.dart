@@ -1,4 +1,5 @@
-import 'package:app/components/components.dart';
+import 'package:app/components/job/components.dart';
+import 'package:app/screens/completed_job_detail/components/job_review.dart';
 import 'package:flutter/material.dart';
 
 class CompletedJobDetailScreen extends StatelessWidget {
@@ -12,10 +13,12 @@ class CompletedJobDetailScreen extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          JobTitle(),
+          JobTitle(showName: true),
           JobDetails(),
           SizedBox(height: 32),
           JobResults(),
+          SizedBox(height: 32),
+          JobReview(),
         ],
       ),
     );

@@ -1,10 +1,11 @@
-import 'package:animations/animations.dart';
+import 'package:app/bloc/jobs_bloc.dart';
+import 'package:app/components/error.dart';
+import 'package:app/components/loading.dart';
 import 'package:app/models/job_types.dart';
-import 'package:app/screens/completed_job_detail/completed_job_detail_screen.dart';
-import 'package:app/screens/job_request/job_request_screen.dart';
+import 'package:app/networking/response.dart';
 import 'package:app/screens/jobs/components/job_list_item.dart';
-import 'package:app/screens/open_job_detail/open_job_detail_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class JobsBody extends StatelessWidget {
   final JobTypes type;
@@ -13,28 +14,30 @@ class JobsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (_, index) {
-        return OpenContainer(
-          closedElevation: 0,
-          closedColor: Theme.of(context).canvasColor,
-          closedBuilder: (_, __) {
-            return JobListItem(
-              index: index,
-              onTap: null,
-            );
-          },
-          openBuilder: (_, __) {
-            if (type == JobTypes.request) {
-              return JobRequestScreen(id: '$index');
-            } else if (type == JobTypes.completed) {
-              return CompletedJobDetailScreen();
-            }
-            return OpenJobDetailsScreen();
-          },
+    final bloc = Provider.of<JobsBloc>(context);
+    return StreamBuilder<Response>(
+      stream: bloc.jobs,
+      initialData: Response.loading(''),
+      builder: (context, snapshot) {
+        if (snapshot.data.status == Status.LOADING) {
+          return LoadingWidget();
+        } else if (snapshot.data.status == Status.ERROR) {
+          return ErrorRetryWidget(
+            message: snapshot.data.message,
+            onRetry: () {
+              bloc.fetchJobs();
+            },
+          );
+        }
+        //TODO: empty list
+        return ListView.builder(
+          itemBuilder: (_, index) => JobListItem(
+            index: index,
+            type: type,
+          ),
+          itemCount: 10,
         );
       },
-      itemCount: 10,
     );
   }
 }

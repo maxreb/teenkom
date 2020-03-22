@@ -1,4 +1,4 @@
-import 'package:app/components/components.dart';
+import 'package:app/components/job/components.dart';
 import 'package:app/screens/open_job_detail/components/job_awaiting_review.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +10,9 @@ class OpenJobDetailsScreen extends StatelessWidget {
         title: Text('Offener Blitzjob'),
       ),
       body: ListView(
+        padding: const EdgeInsets.only(bottom: 16),
         children: <Widget>[
-          JobTitle(),
+          JobTitle(showName: true),
           const SizedBox(height: 16),
           const JobDetails(),
           const SizedBox(height: 32),

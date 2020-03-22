@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mdi/mdi.dart';
 
 class JobResults extends StatelessWidget {
   JobResults();
@@ -15,7 +16,14 @@ class JobResults extends StatelessWidget {
             style: Theme.of(context).textTheme.button,
           ),
         ),
-        ListTile()
+        ListTile(
+          leading: Icon(Icons.timer),
+          title: Text('2 Stunden Arbeitszeit'),
+        ),
+        ListTile(
+          leading: Icon(Mdi.cashMultiple),
+          title: Text('12 € verident'),
+        ),
       ],
     );
   }

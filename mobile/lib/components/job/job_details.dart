@@ -22,8 +22,8 @@ class _JobDetailsState extends State<JobDetails> with SingleTickerProviderStateM
           ),
         ),
         ListTile(
-          leading: Icon(Icons.terrain),
-          title: Text('Tätigkeiten:  Rasen mähen, Laub harken'),
+          leading: Icon(Icons.assignment),
+          title: Text('Rasen mähen, Laub harken'),
         ),
         ListTile(
           leading: Icon(Icons.location_on),
@@ -34,7 +34,7 @@ class _JobDetailsState extends State<JobDetails> with SingleTickerProviderStateM
           title: Text('6 €/Std. + 3 € Anfahrt'),
         ),
         ListTile(
-          leading: Icon(Icons.event_note),
+          leading: Icon(Icons.note),
           title: Text(
             'CORONA: eigene Handschuhe mitbringen, min. 2 Meter Abstand zu Leute, nicht im Haus von Kunde reingehen, Gespräche',
           ),

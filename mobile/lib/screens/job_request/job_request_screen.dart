@@ -1,5 +1,5 @@
-import 'package:app/components/components.dart';
-import 'package:app/components/job_details.dart';
+import 'package:app/components/job/components.dart';
+import 'package:app/components/job/job_details.dart';
 import 'package:app/screens/job_accepted/job_accepeted_dialog.dart';
 import 'package:app/screens/job_request/components/button_row.dart';
 import 'package:flutter/cupertino.dart';
