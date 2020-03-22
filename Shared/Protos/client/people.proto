@@ -1,26 +1,27 @@
 syntax = "proto3";
 
-option csharp_namespace = "Caiju.TeenKom.Blitzjob.AppServer.Protos";
+option csharp_namespace = "Caiju.TeenKom.Blitzjob.AppServer.Protos.Client";
 
 package people;
 
 import "google/protobuf/timestamp.proto";
-
+import "shared/default.proto";
 
 service People{
-	rpc GetCoach (GetCoachReq) returns (GetCoachRes);
+	rpc GetCoach (default.DefaultReq) returns (GetCoachRes);
+	rpc GetCustomer (default.DefaultReq) returns (GetCustomerRes);
 }
 
-message GetCoachReq{
-	uint32 id = 1;
+message GetCustomerRes{
+	CustomerRes customer = 1;
 }
 
 message GetCoachRes{
-	Coach coach = 1;
+	CoachRes coach = 1;
 }
 
 message PeopleBase{
-	uint32 id = 1;
+	int32 id = 1;
 	string first_name = 2;
 	string last_name = 3;
 	enum PhoneType {
@@ -35,21 +36,21 @@ message PeopleBase{
 	repeated PhoneNumber phones = 4;
 }
 
-message Coach{
+message CoachRes{
 	PeopleBase people_base = 1;
 	google.protobuf.Timestamp coach_time_reachable_from = 2;
 	google.protobuf.Timestamp coach_time_reachable_to = 3;
 }
 
-message Blitzjobber{
+message BlitzjobberRes{
 	PeopleBase people_base = 1;
 }
 
-message Customer{
+message CustomerRes{
 	PeopleBase people_base = 1;
 }
 
-message Admin{
+message AdminRes{
 	PeopleBase people_base = 1;
 }
 

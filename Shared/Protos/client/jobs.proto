@@ -4,15 +4,45 @@ option csharp_namespace = "Caiju.TeenKom.Blitzjob.AppServer.Protos.Client";
 
 package jobs;
 
+import "shared/default.proto";
 import "client/people.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+
+
+service Jobs{
+	rpc Get (default.DefaultReq) returns (BlitzjobRes);
+	rpc List (google.protobuf.Empty) returns (BlitzjobListRes);
+	rpc AcceptJobReq (default.DefaultReq) returns (AcceptJobRes);
+}
+
+
+message BlitzjobRes{
+	bool success = 1;
+	string status = 2;
+	string title = 3;
+	google.protobuf.Timestamp start_date = 4 ;
+	google.protobuf.Timestamp end_date = 5;
+	string descripton = 6;
+	string location = 7;
+	double hourly_rate = 8;
+	string note = 9;
+	int32 customer_id = 10;
+	string review = 11;
+}
 
 message AcceptJobReq{
-	uint64 id = 1;
+	int32 id = 1;
 	bool accept = 2;
 }
 
 message AcceptJobRes{
-	uint64 id = 1;
-	people.Coach coach = 2;
-	people.Customer customer = 3;
+	bool success = 1;
+	people.CoachRes coach = 2;
+	people.CustomerRes customer = 3;
+}
+
+message BlitzjobListRes{
+	repeated BlitzjobRes blitzjobs = 1;
 }

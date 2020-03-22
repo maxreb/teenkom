@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option csharp_namespace = "Caiju.TeenKom.Blitzjob.AppServer.Protos.Shared";
+
+package default;
+
+
+message DefaultReq{
+	int32 id = 1;
+}
+
+message DefaultRes{
+	bool success = 1;
+}

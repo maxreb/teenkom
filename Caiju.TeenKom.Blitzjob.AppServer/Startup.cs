@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Caiju.TeenKom.Blitzjob.AppServer.Services.Client;
 using Caiju.TeenKom.Blitzjob.AppServer.Services.Server;
+using Caiju.TeenKom.Shared.Database;
 using FirebaseAdmin;
 using FirebaseAdmin.Messaging;
 using Google.Apis.Auth.OAuth2;
@@ -22,6 +23,7 @@ namespace Caiju.TeenKom.Blitzjob.AppServer
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddGrpc();
+			services.AddDbContext<TeenKomContext>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

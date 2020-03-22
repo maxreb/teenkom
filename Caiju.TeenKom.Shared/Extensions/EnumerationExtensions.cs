@@ -18,6 +18,14 @@ namespace Caiju.TeenKom.Shared.Extensions
 						Status.Done => "Erledigt",
 						_ => "Fehler"
 					};
+		public static string ToFriendlyString(this Category cat)
+					=> cat switch
+					{
+						Category.CleanCar => "Auto waschen",
+						Category.Gardening => "Gartenarbeit",
+						Category.Shopping => "Einkaufen",
+						_ => "Fehler"
+					};
 
 	}
 }

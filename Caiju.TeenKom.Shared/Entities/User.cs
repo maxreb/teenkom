@@ -15,7 +15,7 @@ namespace Caiju.TeenKom.Shared.Entities
 	}
 	public class Customer : BaseUser
 	{
-		public uint CustomerID { get; set; }
+		public int CustomerID { get; set; }
 
 	}
 

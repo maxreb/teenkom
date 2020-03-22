@@ -3,20 +3,11 @@ syntax = "proto3";
 option csharp_namespace = "Caiju.TeenKom.Blitzjob.AppServer.Protos.Server";
 
 package teenkonfcm;
-
+import "shared/default.proto";
 
 
 
 service TeenKonFCM{
-	rpc NewAssignmentRequest (DefaultReq) returns (DefaultRes);
-	rpc NewReviewRequest (DefaultReq) returns (DefaultRes);
-}
-
-
-message DefaultReq{
-	int32 job_id = 1;
-}
-
-message DefaultRes{
-	bool success = 1;
+	rpc NewAssignmentRequest (default.DefaultReq) returns (default.DefaultRes);
+	rpc NewReviewRequest (default.DefaultReq) returns (default.DefaultRes);
 }

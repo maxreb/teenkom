@@ -1,4 +1,5 @@
 ﻿using Caiju.TeenKom.Blitzjob.AppServer.Protos.Server;
+using Caiju.TeenKom.Blitzjob.AppServer.Protos.Shared;
 using FirebaseAdmin.Messaging;
 using Grpc.Core;
 using System;
@@ -30,7 +31,8 @@ namespace Caiju.TeenKom.Blitzjob.AppServer.Services.Server
 					Data = new Dictionary<string, string>()
 					{
 						["click_action"] = "FLUTTER_NOTIFICATION_CLICK",
-						["jobId"] = request.JobId.ToString(CultureInfo.InvariantCulture)
+						["jobId"] = request.Id.ToString(CultureInfo.InvariantCulture),
+						["topic"] = topic
 					}
 				}).ConfigureAwait(false);
 				return new DefaultRes { Success = true };
