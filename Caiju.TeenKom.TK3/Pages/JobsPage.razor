@@ -20,14 +20,14 @@
 	<MatTableRow>
 		<td>@context.Place</td>
 		<td>@(context.Customer?.ToString() ?? "Adam Ries")</td>
-		<td>@context.Category</td>
+		<td>@context.Category.ToFriendlyString()</td>
 		<td>@context.Details</td>
 		<td>@context.StartDate</td>
 		<td>@context.EndDate</td>
 		<td>@context.Note</td>
 		<td>@context.HourlyRate €/h (Insgesamt: @(Math.Round(context.HourlyRate * (context.EndDate - context.StartDate).TotalHours, 2)) € )</td>
 		<td style=@(context.Status == Status.Error ? "background-color: red" : "")>
-			<p>@context.Status</p>
+			<p>@context.Status.ToFriendlyString()</p>
 			@if (context.Status == Status.Error)
 			{
 				<MatButton OnClick="() => {

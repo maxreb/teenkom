@@ -29,8 +29,8 @@ namespace Caiju.TeenKom.Blitzjob.AppServer.Services.Client
 			DefaultCouch = new CoachRes
 			{
 				PeopleBase = ppl,
-				CoachTimeReachableFrom = Timestamp.FromDateTime(DateTime.Now),
-				CoachTimeReachableTo = Timestamp.FromDateTime(DateTime.Now.AddHours(3))
+				CoachTimeReachableFrom = Timestamp.FromDateTime(DateTime.Now.ToUniversalTime()),
+				CoachTimeReachableTo = Timestamp.FromDateTime(DateTime.Now.AddHours(3).ToUniversalTime())
 			};
 
 			ppl = new PeopleBase

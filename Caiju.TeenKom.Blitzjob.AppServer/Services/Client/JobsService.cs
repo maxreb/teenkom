@@ -28,7 +28,7 @@ namespace Caiju.TeenKom.Blitzjob.AppServer.Services.Client
 		public override async Task<AcceptJobRes> AcceptJobReq(DefaultReq request, ServerCallContext context)
 		{
 			var j = await _dbContext.Blitzjobs.FindAsync(request.Id).ConfigureAwait(false);
-			if (j?.Customer == null)
+			if (j == null)
 				return new AcceptJobRes { Success = false };
 			else
 			{
@@ -39,9 +39,9 @@ namespace Caiju.TeenKom.Blitzjob.AppServer.Services.Client
 
 				var ppl = new PeopleBase
 				{
-					Id = j.Customer.CustomerID,
-					LastName = j.Customer.LastName,
-					FirstName = j.Customer.FirstName
+					Id = j.Customer?.CustomerID ?? 1,
+					LastName = j.Customer?.LastName ?? "Ries",
+					FirstName = j.Customer?.FirstName ?? "Adam"
 				};
 				ppl.Phones.Add(new PeopleBase.Types.PhoneNumber { Number = "+49 134 4534234", Type = PeopleBase.Types.PhoneType.Mobile });
 				return new AcceptJobRes

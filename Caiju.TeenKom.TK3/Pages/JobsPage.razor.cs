@@ -57,15 +57,19 @@ namespace Caiju.TeenKom.TK3.Pages
 		Job reviewJob = null;
 		bool dialogReviewIsOpen;
 
+
+		Customer defaultCust;
+
 		protected override void OnInitialized()
 		{
 			//this is the stupiest thing I  every seen
 			//we have to do this, otherwise JobBlitzjobberRelation wont me initalized
 			//there must by another way, but not enough time while hackathon
 			_dbContext.JobBlitzjobberRelation.Load();
+			defaultCust = _dbContext.Customer.First();
 
 			refreshDBService.OnRefreshRequest += RefreshDBService_OnRefreshRequest;
-
+			//_dbContext.Customer.Add(new Customer { FirstName = "Adam", LastName = "Ries", Address = "Heidehofstraße 31, Stuttgart" });
 
 			//_dbContext.Blitzjobber.Add(new Blitzjobber { FirstName = "Adam", LastName = "Smith", Address = "Wrangelstraße 66, Wrangelkiez Berlin" });
 			//_dbContext.Blitzjobber.Add(new Blitzjobber { FirstName = "Zoro", LastName = "Zurich", Address = "Eberswalderstr. 33, Prenzlau Berlin" });
@@ -181,12 +185,7 @@ namespace Caiju.TeenKom.TK3.Pages
 				HourlyRate = rnd.Next(50, 100) / 10.0f,
 				Note = "Wegen Covid-19 bitte keinen Kontakt",
 				Details = "Rasenmähen, Laub harken",
-				Customer = new Customer
-				{
-					FirstName = "Adam",
-					LastName = "Ries",
-					Address = "Dorfstrasse, Bad Staffelstein"
-				},
+				Customer = defaultCust,
 				StartDate = new DateTime(2020, 03, 21, 22, 0, 0),
 				EndDate = new DateTime(2020, 03, 21, 23, 0, 0),
 				Status = Status.NotReady

@@ -12,7 +12,7 @@ namespace Caiju.TeenKom.Shared.Extensions
 					{
 						Status.NotReady => "Nicht bereit",
 						Status.Ready => "Bereit",
-						Status.Assigned => "Angenommen",
+						Status.Assigned => "Zugewiesen",
 						Status.Accepted => "Aktzeptiert",
 						Status.WaitForReview => "Warte auf Review",
 						Status.Done => "Erledigt",
