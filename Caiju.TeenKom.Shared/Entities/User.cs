@@ -1,4 +1,6 @@
-﻿namespace Caiju.TeenKom.Shared.Entities
+﻿using System.Collections.Generic;
+
+namespace Caiju.TeenKom.Shared.Entities
 {
 	public abstract class BaseUser
 	{
@@ -13,12 +15,19 @@
 	}
 	public class Customer : BaseUser
 	{
+		public uint CustomerID { get; set; }
 
 	}
 
 	public class Blitzjobber : BaseUser
 	{
-		public string FCMToken { get; set; }
+		public Blitzjobber()
+		{
+			Jobs = new List<JobsBlitzjobbersRelation>();
+		}
+		public int BlitzjobberID { get; set; }
+		public string? FCMToken { get; set; }
+		public ICollection<JobsBlitzjobbersRelation> Jobs { get; set; }
 	}
 
 

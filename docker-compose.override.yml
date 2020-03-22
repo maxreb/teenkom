@@ -21,3 +21,9 @@ services:
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+  postgres:
+    networks:
+      - default
+    ports:
+      - "5432:5432"

@@ -8,17 +8,13 @@ package teenkonfcm;
 
 
 service TeenKonFCM{
-	rpc NewAssignmentRequest (NewAssignmentReq) returns (DefaultRes);
-	rpc NewReviewRequest (NewAssignmentReq) returns (DefaultRes);
+	rpc NewAssignmentRequest (DefaultReq) returns (DefaultRes);
+	rpc NewReviewRequest (DefaultReq) returns (DefaultRes);
 }
 
-message NewAssignmentReq{
-	uint32 job_id = 1;
-	uint32 user_id = 2;
-}
 
-message NewReviewReq{
-	uint32 user_id = 1;
+message DefaultReq{
+	int32 job_id = 1;
 }
 
 message DefaultRes{

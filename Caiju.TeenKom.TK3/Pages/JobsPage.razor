@@ -1,9 +1,10 @@
 ﻿@page "/jobs"
+@inject TeenKomContext _dbContext;
 
 <h3>Blitzjobs</h3>
 <MatButton Icon="add" OnClick="@NewJob">Neuer Blitzjob</MatButton>
 
-<MatTable Items="jobs">
+<MatTable Items="Jobs">
 	<MatTableHeader>
 		<th>Ort</th>
 		<th>Kunde</th>
@@ -25,38 +26,47 @@
 		<td>@context.EndDate</td>
 		<td>@context.Note</td>
 		<td>@context.HourlyRate €/h (Insgesamt: @(Math.Round(context.HourlyRate * (context.EndDate - context.StartDate).TotalHours, 2)) € )</td>
-		<td>
+		<td style=@(context.Status == Status.Error ? "background-color: red" : "")>
 			<p>@context.Status</p>
+			@if (context.Status == Status.Error)
+			{
+				<MatButton OnClick="() => {
+										context.Status = Status.NotReady;
+										context.BlitzjobbersAssigned.Clear();
+									}">Reset</MatButton>
+			}
 			@if (context.Status == Status.NotReady)
 			{
-			<MatButton OnClick="() => context.Status = Status.Ready">Bereit</MatButton>
+				<MatButton OnClick="() => context.Status = Status.Ready">Bereit</MatButton>
 			}
 			else if (context.Status == Status.Accepted)
 			{
-			<MatButton OnClick="() => context.Status = Status.WaitForReview">Blitzjob Erledigt</MatButton>
+				<MatButton OnClick="async () => await SendReviewRequest(context)">Blitzjob Erledigt</MatButton>
 			}
 			else if (context.Status == Status.WaitForReview)
 			{
-			<MatButton OnClick="() => context.Status = Status.Done">Review schreiben</MatButton>
+				<MatButton OnClick="() => context.Status = Status.Done">Review schreiben</MatButton>
 			}
 		</td>
 		<td>
 			<div style="display:flex; flex-direction:row">
-
-				<table>
-					@foreach (var u in context.BlitzjobbersAssigned)
-					{
-						if (u == null)
-							continue;
-					<tr><td>@u.ToString()</td></tr>
-					}
-				</table>
-
-				<MatButton Disabled="(context.Status != Status.Ready)" OnClick="@(() => OpenDialog(context.BlitzjobbersAssigned))" Icon="add"></MatButton>
+				@if (context.BlitzjobbersAssigned != null)
+				{
+					<table>
+						@foreach (var u in context.BlitzjobbersAssigned)
+						{
+							if (u?.Blitzjobber == null)
+								continue;
+							<tr><td>@u.Blitzjobber.ToString()</td></tr>
+						}
+					</table>
+				}
+				<MatButton Disabled="(context.Status != Status.Ready)" OnClick="@(() => OpenDialog(context))" Icon="add"></MatButton>
 				@if (context.Status == Status.Ready)
 				{
-				<MatButton Disabled="(!context.BlitzjobbersAssigned.Any())" OnClick="@(async () => await SetAssigned(context))">Sende Benachrichtigung</MatButton>
+					<MatButton Disabled="(!context.BlitzjobbersAssigned?.Any() ?? true)" OnClick="@(async () => await SetAssigned(context))">Sende Benachrichtigung</MatButton>
 				}
+
 			</div>
 		</td>
 	</MatTableRow>
@@ -66,7 +76,7 @@
 <MatDialog @bind-IsOpen="@dialogIsOpen">
 	<MatDialogTitle>Neuen Blitzjobber hinzufügen</MatDialogTitle>
 	<MatDialogContent>
-		<MatSelectItem Items="blitzjobber" @bind-Value="@animal"></MatSelectItem>
+		<MatSelectItem Items="Blitzjobber" @bind-Value="@blitzjobber"></MatSelectItem>
 	</MatDialogContent>
 	<MatDialogActions>
 		<MatButton OnClick="@(e => { dialogIsOpen = false; })">Abbrechen</MatButton>
@@ -81,15 +91,15 @@
 	<MatDialogContent>
 		@if (dialogNewJobIsOpen)
 		{
-		<MatTextField Label="Ort" TValue="string" @bind-Value="@newJob.Place"></MatTextField>
-		<MatSelectItem Items="((IReadOnlyList<Category>)Enum.GetValues(typeof(Category)))" TValue="Category" @bind-Value="@newJob.Category"></MatSelectItem>
+			<MatTextField Label="Ort" TValue="string" @bind-Value="@newJob.Place"></MatTextField>
+			<MatSelectItem Items="((IReadOnlyList<Category>)Enum.GetValues(typeof(Category)))" TValue="Category" @bind-Value="@newJob.Category"></MatSelectItem>
 		}
 		<p>Die anderen Sachen folgen...</p>
 
 	</MatDialogContent>
 	<MatDialogActions>
 		<MatButton OnClick="@(e => { dialogNewJobIsOpen = false; })">Abbrechen</MatButton>
-		<MatButton OnClick="@NewJobOkClick">OK</MatButton>
+		<MatButton Raised="true" OnClick="(async () => await NewJobOkClick())">OK</MatButton>
 	</MatDialogActions>
 </MatDialog>
 

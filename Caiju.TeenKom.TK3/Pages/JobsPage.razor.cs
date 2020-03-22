@@ -1,6 +1,11 @@
 ﻿using Caiju.TeenKom.Blitzjob.AppServer.Protos.Server;
+using Caiju.TeenKom.Shared.Database;
 using Caiju.TeenKom.Shared.Entities;
+using Caiju.TeenKom.TK3.Stores;
 using Grpc.Net.Client;
+using Microsoft.AspNetCore.Components;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,73 +16,47 @@ namespace Caiju.TeenKom.TK3.Pages
 {
 	public partial class JobsPage
 	{
+		[Inject]
+		TeenKomFCMStore FcmStore { get; set; }
 
-		List<Job> jobs = new List<Job>{
-		new Job{
-			 HourlyRate = 7.6f,
-			  Note = "Wegen Covid-19 bitte Handschue mitnehmen",
-			 Review = "",
-			Details = "Rasen Mähen",
-			  Category = Category.Gardening,
-			  Customer = new Customer
-			  {
-				  FirstName = "John",
-				  LastName = "Smith",
-				  Address = "Gardening Avenue, New York"
 
-			  },
-			   StartDate = new DateTime(2020,03,21,22,0,0),
-			   EndDate = new DateTime(2020,03,21,23,30,0),
-				Place = "Gardening Avenue, New York",
-				 Status = Status.Ready,
-				 BlitzjobbersAssigned = new List<Blitzjobber>()
-	},
-		new Job{
-			 HourlyRate = 5.6f,
-			 Note = "Wegen Covid-19 bitte keinen Kontakt",
-			 Details = "32 Eier, 128 Packungen Klopapier, 0.64 Liter Milch",
-			  Category = Category.Shopping,
-			  Customer = new Customer
-			  {
-				  FirstName = "Oma",
-				  LastName = "Irma",
-				  Address = "Oranienstraße 37, Berlin"
+		IEnumerable<Job> Jobs => _dbContext.Blitzjobs;
 
-			  },
-			   StartDate = new DateTime(2020,03,22,15,0,0),
-			   EndDate = new DateTime(2020,03,22,17,0,0),
-				Place = "Kreuzberg, Berlin",
-				 Status = Status.Assigned,
-				 BlitzjobbersAssigned = new List<Blitzjobber>{
-					 blitzjobber[0],
-					 blitzjobber[1]
-				 }
-		}
-	};
-
-		static Blitzjobber[] blitzjobber = new Blitzjobber[] {
-		new Blitzjobber { FirstName = "Adam", LastName = "Smith", Address = "Wrangelstraße 66, Wrangelkiez Berlin"},
-		new Blitzjobber { FirstName = "Zoro", LastName = "Zurich", Address = "Eberswalderstr. 33, Prenzlau Berlin"},
-		new Blitzjobber { FirstName = "Max", LastName = "Mustermann", Address = "Holtenauer Straße 33, Kiel"},
-		new Blitzjobber { FirstName = "Erika", LastName = "Musterfrau", Address = "Lutherstraße 17, Kiel"},
-		};
-
+		IReadOnlyList<Blitzjobber> Blitzjobber => _dbContext.Blitzjobber.ToList();
 		bool dialogIsOpen = false;
 		bool dialogNewJobIsOpen = false;
 		string name = null;
-		Blitzjobber animal = null;
-		IList<Blitzjobber> currentBlitzjobberList = null;
+		Blitzjobber blitzjobber = null;
+		Job currentJob = null;
 		string dialogAnimal = null;
 
 
 		Job newJob = null;
 
 
-
-
-		void OpenDialog(IList<Blitzjobber> list)
+		protected override void OnInitialized()
 		{
-			currentBlitzjobberList = list;
+			//this is the stupiest thing I  every seen
+			//we have to do this, otherwise JobBlitzjobberRelation wont me initalized
+			//there must by another way, but not enough time while hackathon
+			foreach (var t in _dbContext.JobBlitzjobberRelation)
+			{
+
+			}
+
+
+
+			//_dbContext.Blitzjobber.Add(new Blitzjobber { FirstName = "Adam", LastName = "Smith", Address = "Wrangelstraße 66, Wrangelkiez Berlin" });
+			//_dbContext.Blitzjobber.Add(new Blitzjobber { FirstName = "Zoro", LastName = "Zurich", Address = "Eberswalderstr. 33, Prenzlau Berlin" });
+			//_dbContext.Blitzjobber.Add(new Blitzjobber { FirstName = "Max", LastName = "Mustermann", Address = "Holtenauer Straße 33, Kiel" });
+			//_dbContext.Blitzjobber.Add(new Blitzjobber { FirstName = "Erika", LastName = "Musterfrau", Address = "Lutherstraße 17, Kiel" });
+			//_dbContext.SaveChanges();
+
+		}
+
+		void OpenDialog(Job job)
+		{
+			currentJob = job;
 			dialogAnimal = null;
 			dialogIsOpen = true;
 		}
@@ -85,34 +64,56 @@ namespace Caiju.TeenKom.TK3.Pages
 
 		async Task SetAssigned(Job job)
 		{
-
-
-			var httpClientHandler = new HttpClientHandler();
-			// Return `true` to allow certificates that are untrusted/invalid
-			httpClientHandler.ServerCertificateCustomValidationCallback =
-				HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
-			var httpClient = new HttpClient(httpClientHandler);
-			var channel = GrpcChannel.ForAddress("https://appserver:443",
-				new GrpcChannelOptions { HttpClient = httpClient });
-			var client = new TeenKonFCM.TeenKonFCMClient(channel);
-			var reply = await client.NewAssignmentRequestAsync(new NewAssignmentReq { JobId = 3, UserId = 5 });
-			if (reply.Success == true)
-				job.Status = Status.Assigned;
-			else
+			try
+			{
+				var reply = await FcmStore.NewAssignmentReq(job);
+				if (reply == true)
+					job.Status = Status.Assigned;
+				else
+					job.Status = Status.Error;
+			}
+			catch (Exception ex)
+			{
+				//TODO add serilog
+				Console.WriteLine("ERROR\r\n" + ex.ToString());
 				job.Status = Status.Error;
+			}
+
+
+
+
+		}
+
+
+		Task SendReviewRequest(Job job)
+		{
+			//TODO
+			//foreach (var u in job.BlitzjobbersAssigned)
+			//{
+
+			//}
+			//Hackathon only one "user"
+			return FcmStore.NewReviewReq(job);
 		}
 
 		void OkClick()
 		{
-			if (animal != null && !currentBlitzjobberList.Contains(animal))
-				currentBlitzjobberList.Add(animal);
+			if ((blitzjobber != null) && !currentJob.BlitzjobbersAssigned.Any(x => x.BlitzjobberID == blitzjobber.BlitzjobberID))
+				currentJob.BlitzjobbersAssigned.Add(new JobsBlitzjobbersRelation { Blitzjobber = blitzjobber, Job = currentJob });
 			dialogIsOpen = false;
 		}
 
-		void NewJobOkClick()
+		async Task NewJobOkClick()
 		{
-			jobs.Add(newJob);
+			await _dbContext.Blitzjobs.AddAsync(newJob).ConfigureAwait(false);
+
 			dialogNewJobIsOpen = false;
+		}
+
+		protected override async Task OnAfterRenderAsync(bool firstRender)
+		{
+			if (!firstRender)
+				await _dbContext.SaveChangesAsync();//super lazy~~
 		}
 
 		void NewJob()
@@ -131,10 +132,11 @@ namespace Caiju.TeenKom.TK3.Pages
 				},
 				StartDate = new DateTime(2020, 03, 21, 22, 0, 0),
 				EndDate = new DateTime(2020, 03, 21, 23, 0, 0),
-				Status = Status.NotReady,
-				BlitzjobbersAssigned = new List<Blitzjobber>()
+				Status = Status.NotReady
 			};
 			dialogNewJobIsOpen = true;
 		}
+
+
 	}
 }
