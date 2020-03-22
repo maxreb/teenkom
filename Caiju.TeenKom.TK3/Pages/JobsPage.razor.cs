@@ -22,6 +22,8 @@ namespace Caiju.TeenKom.TK3.Pages
 		[Inject]
 		RefreshDBService refreshDBService { get; set; }
 
+		int pageSize = 100;
+
 
 		readonly object _lock = new object();
 

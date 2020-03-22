@@ -4,7 +4,7 @@
 <h3>Blitzjobs</h3>
 <MatButton Icon="add" OnClick="@NewJob">Neuer Blitzjob</MatButton>
 
-<MatTable Items="Jobs">
+<MatTable Items="Jobs" @bind-PageSize="pageSize">
 	<MatTableHeader>
 		<th>Ort</th>
 		<th>Kunde</th>
