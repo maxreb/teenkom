@@ -1,8 +1,7 @@
-import 'package:app/arguments/job_request_argument.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/cupertino.dart';
 
-void initFirebaseMessaging(BuildContext context) async {
+void initFirebaseMessaging(
+    Function(int id) onJobRequest, Function(int id) onReviewRequest) async {
   final firebaseMessaging = FirebaseMessaging();
   await firebaseMessaging.requestNotificationPermissions();
 
@@ -10,37 +9,38 @@ void initFirebaseMessaging(BuildContext context) async {
   print(token);
   firebaseMessaging.configure(
     onLaunch: (arguments) async {
-      _handleNotification(arguments, context);
+      _handleNotification(arguments, onJobRequest, onReviewRequest);
     },
     onMessage: (arguments) async {
-      _handleNotification(arguments, context);
+      _handleNotification(arguments, onJobRequest, onReviewRequest);
     },
     onResume: (arguments) async {
-      _handleNotification(arguments, context);
+      _handleNotification(arguments, onJobRequest, onReviewRequest);
     },
   );
   firebaseMessaging.subscribeToTopic('WirVsVirus_NewReviewRequest');
   firebaseMessaging.subscribeToTopic('WirVsVirus_NewAssignmentRequest');
 }
 
-void _handleNotification(Map arguments, BuildContext context) async {
-  switch (arguments['data']['from']) {
-    case '/topics/WirVsVirus_NewAssignmentRequest':
-      print(arguments);
-      print(arguments['data']['jobId']);
-      if (arguments['data']['jobId'] != null) {
-        await Future.delayed(Duration.zero);
-        Navigator.pushNamed(
-          context,
-          '/job_request',
-          arguments: JobRequestArgument(
-            arguments['data']['jobId'],
-          ),
-        );
-      }
-      break;
-    case '/topics/WirVsVirus_NewReviewRequest':
-      break;
+void _handleNotification(
+  Map arguments,
+  Function(int id) onJobRequest,
+  Function(int id) onReviewRequest,
+) async {
+  if (arguments != null && arguments['data'] != null) {
+    switch (arguments['data']['topic']) {
+      case 'NewAssignmentRequest':
+        print(arguments);
+        if (arguments['data']['jobId'] != null) {
+          onJobRequest(int.parse(arguments['data']['jobId']));
+        }
+        break;
+      case 'NewReviewRequest':
+        if (arguments['data']['jobId'] != null) {
+          onReviewRequest(int.parse(arguments['data']['jobId']));
+        }
+        break;
+    }
+    print(arguments);
   }
-  print(arguments);
 }

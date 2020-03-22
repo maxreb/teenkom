@@ -1,6 +1,11 @@
+import 'package:app/generated/client/jobs.pb.dart';
 import 'package:flutter/material.dart';
 
 class JobReview extends StatelessWidget {
+  final BlitzjobRes job;
+
+  const JobReview({Key key, this.job}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,10 +20,7 @@ class JobReview extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-          child: Text(
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. '
-            'At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-          ),
+          child: Text('${job.review}'),
         )
       ],
     );

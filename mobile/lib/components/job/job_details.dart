@@ -1,13 +1,16 @@
+import 'package:app/generated/client/jobs.pbgrpc.dart';
 import 'package:flutter/material.dart';
 
 class JobDetails extends StatefulWidget {
-  const JobDetails({Key key}) : super(key: key);
+  final BlitzjobRes job;
+
+  const JobDetails({Key key, @required this.job}) : super(key: key);
 
   @override
   _JobDetailsState createState() => _JobDetailsState();
 }
 
-class _JobDetailsState extends State<JobDetails> with SingleTickerProviderStateMixin {
+class _JobDetailsState extends State<JobDetails> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,21 +26,19 @@ class _JobDetailsState extends State<JobDetails> with SingleTickerProviderStateM
         ),
         ListTile(
           leading: Icon(Icons.assignment),
-          title: Text('Rasen mähen, Laub harken'),
+          title: Text('${widget.job.descripton}'),
         ),
         ListTile(
           leading: Icon(Icons.location_on),
-          title: Text('Karow Pankow, 45 Min. Fahrweg von zuhause'),
+          title: Text('${widget.job.location}'),
         ),
         ListTile(
           leading: Icon(Icons.euro_symbol),
-          title: Text('6 €/Std. + 3 € Anfahrt'),
+          title: Text('${widget.job.hourlyRate.roundToDouble()} €'),
         ),
         ListTile(
           leading: Icon(Icons.note),
-          title: Text(
-            'CORONA: eigene Handschuhe mitbringen, min. 2 Meter Abstand zu Leute, nicht im Haus von Kunde reingehen, Gespräche',
-          ),
+          title: Text('${widget.job.note}'),
         )
       ],
     );

@@ -1,5 +1,5 @@
 class JobRequestArgument {
-  final String jobId;
+  final int jobId;
 
   JobRequestArgument(this.jobId);
 }
