@@ -16,6 +16,8 @@ services:
     build:
       context: .
       dockerfile: Caiju.TeenKom.TK3/Dockerfile
+    ports:
+        - 8043:80
     networks:
         - db
         - default

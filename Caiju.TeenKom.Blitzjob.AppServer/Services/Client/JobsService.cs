@@ -35,7 +35,7 @@ namespace Caiju.TeenKom.Blitzjob.AppServer.Services.Client
 
 				j.Status = Shared.Entities.Status.Accepted;
 				await _dbContext.SaveChangesAsync().ConfigureAwait(false);
-				await _httpClient.GetAsync("https://tk3/refresh");
+				await _httpClient.GetAsync("http://tk3/refresh");
 
 				var ppl = new PeopleBase
 				{
