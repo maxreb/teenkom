@@ -66,16 +66,26 @@ namespace Caiju.TeenKom.TK3.Pages
 			//we have to do this, otherwise JobBlitzjobberRelation wont me initalized
 			//there must by another way, but not enough time while hackathon
 			_dbContext.JobBlitzjobberRelation.Load();
-			defaultCust = _dbContext.Customer.First();
+			try
+			{
+				defaultCust = _dbContext.Customer.First();
+			}
+			catch (InvalidOperationException)
+			{
+#warning only for debugging purporses
+				Console.WriteLine("Create Default Customer...");
+				_dbContext.Customer.Add(new Customer { FirstName = "Adam", LastName = "Ries", Address = "Heidehofstraße 31, Stuttgart" });
+
+				_dbContext.Blitzjobber.Add(new Blitzjobber { FirstName = "Adam", LastName = "Smith", Address = "Wrangelstraße 66, Wrangelkiez Berlin" });
+				_dbContext.Blitzjobber.Add(new Blitzjobber { FirstName = "Zoro", LastName = "Zurich", Address = "Eberswalderstr. 33, Prenzlau Berlin" });
+				_dbContext.Blitzjobber.Add(new Blitzjobber { FirstName = "Max", LastName = "Mustermann", Address = "Holtenauer Straße 33, Kiel" });
+				_dbContext.Blitzjobber.Add(new Blitzjobber { FirstName = "Erika", LastName = "Musterfrau", Address = "Lutherstraße 17, Kiel" });
+				_dbContext.SaveChanges();
+				defaultCust = _dbContext.Customer.First();
+			}
 
 			refreshDBService.OnRefreshRequest += RefreshDBService_OnRefreshRequest;
-			//_dbContext.Customer.Add(new Customer { FirstName = "Adam", LastName = "Ries", Address = "Heidehofstraße 31, Stuttgart" });
 
-			//_dbContext.Blitzjobber.Add(new Blitzjobber { FirstName = "Adam", LastName = "Smith", Address = "Wrangelstraße 66, Wrangelkiez Berlin" });
-			//_dbContext.Blitzjobber.Add(new Blitzjobber { FirstName = "Zoro", LastName = "Zurich", Address = "Eberswalderstr. 33, Prenzlau Berlin" });
-			//_dbContext.Blitzjobber.Add(new Blitzjobber { FirstName = "Max", LastName = "Mustermann", Address = "Holtenauer Straße 33, Kiel" });
-			//_dbContext.Blitzjobber.Add(new Blitzjobber { FirstName = "Erika", LastName = "Musterfrau", Address = "Lutherstraße 17, Kiel" });
-			//_dbContext.SaveChanges();
 
 		}
 
