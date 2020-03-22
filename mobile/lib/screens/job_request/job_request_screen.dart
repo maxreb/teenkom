@@ -1,4 +1,7 @@
-import 'package:app/screens/job_request/components/components.dart';
+import 'package:app/components/job/components.dart';
+import 'package:app/components/job/job_details.dart';
+import 'package:app/screens/job_accepted/job_accepeted_dialog.dart';
+import 'package:app/screens/job_request/components/button_row.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,8 +14,23 @@ class JobRequestScreen extends StatefulWidget {
   _JobRequestScreenState createState() => _JobRequestScreenState();
 }
 
-class _JobRequestScreenState extends State<JobRequestScreen> {
+class _JobRequestScreenState extends State<JobRequestScreen>
+    with SingleTickerProviderStateMixin {
   bool _showDetails = false;
+  AnimationController controller;
+  Animation<double> _fadeInAnimation;
+
+  @override
+  void initState() {
+    controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 200),
+    );
+    _fadeInAnimation = Tween(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: controller, curve: Curves.easeIn),
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,41 +41,25 @@ class _JobRequestScreenState extends State<JobRequestScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
-            child: Text(
-              'Gartenarbeit',
-              style: Theme.of(context).textTheme.title,
-            ),
+          JobTitle(),
+          SizedBox(height: 16),
+          FadeTransition(
+            opacity: _fadeInAnimation,
+            child: JobDetails(),
           ),
-          ListTile(
-            title: Text('Samstag 28. März. 10 - 13 Uhr'),
-          ),
-          if (_showDetails) ...[
-            ListTile(
-              leading: Icon(Icons.terrain),
-              title: Text('Tätigkeiten:  Rasen mähen, Laub harken'),
-            ),
-            ListTile(
-              leading: Icon(Icons.location_on),
-              title: Text('Karow Pankow, 45 Min. Fahrweg von zuhause'),
-            ),
-            ListTile(
-              leading: Icon(Icons.euro_symbol),
-              title: Text('6 €/Std. + 3 € Anfahrt'),
-            ),
-            ListTile(
-              leading: Icon(Icons.event_note),
-              title: Text(
-                'CORONA: eigene Handschuhe mitbringen, min. 2 Meter Abstand zu Leute, nicht im Haus von Kunde reingehen, Gespräche',
-              ),
-            )
-          ],
           Expanded(
             child: ButtonRow(
               stageOneCompleted: _showDetails,
               onContinue: () {
-                setState(() => _showDetails = true);
+                if (!_showDetails) {
+                  setState(() => _showDetails = true);
+                  controller.forward();
+                } else {
+                  showDialog(
+                    context: context,
+                    builder: (_) => JobAcceptedDialog(),
+                  );
+                }
               },
             ),
           ),

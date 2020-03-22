@@ -6,14 +6,31 @@ class SettingsBottomSheet extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
+        SizedBox(height: 16),
+        Image.asset(
+          'images/blitzjobber.png',
+          width: 60,
+          height: 60,
+        ),
+        SizedBox(height: 8),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Text(
+            'Erika Musterfrau',
+            style: Theme.of(context).textTheme.title,
+          ),
+        ),
+        SizedBox(height: 8),
+        const Divider(height: 4),
         ListTile(
-          title: Text('test'),
+          leading: Icon(Icons.phone),
+          title: Text('Einen Coach kontaktieren'),
+          onTap: () {},
         ),
         ListTile(
-          title: Text('test'),
-        ),
-        ListTile(
-          title: Text('test'),
+          leading: Icon(Icons.exit_to_app),
+          title: Text('Ausloggen'),
+          onTap: () {},
         ),
       ],
     );
