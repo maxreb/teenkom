@@ -19,4 +19,5 @@ RUN dotnet publish "Caiju.TeenKom.Blitzjob.AppServer.csproj" -c Release -o /app/
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+COPY cert/selfsigned.pfx .
 ENTRYPOINT ["dotnet", "Caiju.TeenKom.Blitzjob.AppServer.dll"]
